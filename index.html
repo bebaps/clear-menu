@@ -21,6 +21,8 @@
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
           <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
         </ul>
       </nav>
     </div>
@@ -34,7 +36,22 @@
     Some footer content
   </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js" async defer></script>
-<script src="assets/js/scripts.js" async defer></script>
+<!-- Call with vanilla JS -->
+<script>
+  (function() {
+    'use strict';
+
+    var el = document.querySelectorAll('#mobile-btn, #overlay');
+
+    el[0].addEventListener('click', function() {
+      this.classList.toggle('active');
+      el[1].classList.toggle('open');
+    });
+  })();
+</script>
+
+<!-- Or call via jQuery -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> -->
+<!-- <script src="assets/js/scripts.js" async defer></script> -->
 </body>
 </html>
