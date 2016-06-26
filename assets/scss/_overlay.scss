@@ -1,0 +1,30 @@
+// Create the overlay
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 0vh;
+
+  background: $color-base;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s, visibility .35s, height .35s;
+  overflow: hidden;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
+  &.open {
+    opacity: .9;
+    visibility: visible;
+    height: 100vh;
+
+    li {
+      // Style animations for the list items
+    }
+  }
+}

@@ -126,4 +126,8 @@
   transition: all .35s ease;
 }
 
+.mobile-menu .sub-menu {
+  display: none;
+}
+
 /*# sourceMappingURL=styles.css.map */
