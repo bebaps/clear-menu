@@ -1,4 +1,4 @@
-.mobile-btn {
+.menu-btn {
   position: fixed;
   top: 5%;
   right: 5%;
@@ -6,32 +6,32 @@
   height: 30px;
   cursor: pointer;
   z-index: 100;
-  -webkit-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
 }
 
-.mobile-btn:hover {
-  opacity: .7;
+.menu-btn:hover {
+  opacity: .9;
 }
 
-.mobile-btn.active .top {
+.menu-btn.active .top {
   -webkit-transform: translateY(11px) translateX(0) rotate(45deg);
           transform: translateY(11px) translateX(0) rotate(45deg);
   background: #da4949;
 }
 
-.mobile-btn.active .middle {
+.menu-btn.active .middle {
   opacity: 0;
   background: #da4949;
 }
 
-.mobile-btn.active .bottom {
+.menu-btn.active .bottom {
   -webkit-transform: translateY(-11px) translateX(0) rotate(-45deg);
           transform: translateY(-11px) translateX(0) rotate(-45deg);
   background: #da4949;
 }
 
-.mobile-btn span {
+.menu-btn span {
   background: rgba(0, 0, 0, 0.9);
   border: none;
   height: 5px;
@@ -44,11 +44,11 @@
   cursor: pointer;
 }
 
-.mobile-btn span:nth-of-type(2) {
+.menu-btn span:nth-of-type(2) {
   top: 11px;
 }
 
-.mobile-btn span:nth-of-type(3) {
+.menu-btn span:nth-of-type(3) {
   top: 22px;
 }
 
@@ -61,8 +61,8 @@
   background: rgba(0, 0, 0, 0.9);
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: opacity .35s, visibility .35s, height .35s;
-  transition: opacity .35s, visibility .35s, height .35s;
+  -webkit-transition: all .30s;
+  transition: all .30s;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -80,6 +80,10 @@
 .overlay.open {
   opacity: .9;
   visibility: visible;
+  height: 100vh;
+}
+
+.fade {
   height: 100vh;
 }
 
@@ -101,21 +105,24 @@
 }
 
 .mobile-menu ul * + * {
-  margin: .5em 0 0;
+  margin: .5em 0;
 }
 
 .mobile-menu ul li {
-  opacity: 1;
   -webkit-box-flex: 1;
       -ms-flex: 1 auto;
           flex: 1 auto;
+}
+
+.mobile-menu ul li:last-child {
+  margin-bottom: 0;
 }
 
 .mobile-menu ul li a {
   display: block;
   overflow: hidden;
   text-decoration: none;
-  color: white;
+  color: #fff;
   padding: 1em 3em;
   font-size: 1.75em;
 }

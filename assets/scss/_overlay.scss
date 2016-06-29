@@ -10,7 +10,7 @@
   background: $color-base;
   opacity: 0;
   visibility: hidden;
-  transition: opacity .35s, visibility .35s, height .35s;
+  transition: all .30s;
   overflow: hidden;
 
   display: flex;
@@ -22,9 +22,9 @@
     opacity: .9;
     visibility: visible;
     height: 100vh;
-
-    li {
-      // Style animations for the list items
-    }
   }
+}
+
+.fade {
+  height: 100vh;
 }

@@ -1,5 +1,5 @@
 // Create the mobile button
-.mobile-btn {
+.menu-btn {
   position: fixed;
   top: 5%;
   right: 5%;
@@ -9,10 +9,10 @@
 
   cursor: pointer;
   z-index: 100;
-  transition: opacity.25s ease;
+  transition: all .25s ease;
 
   &:hover {
-    opacity: .7;
+    opacity: .9;
   }
 
   &.active {

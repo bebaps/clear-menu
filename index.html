@@ -9,13 +9,13 @@
 <body>
 
   <header>
-    <div id="mobile-btn" class="mobile-btn">
+    <div id="menu-btn" class="menu-btn">
       <span class="top"></span>
       <span class="middle"></span>
       <span class="bottom"></span>
     </div>
 
-    <div id="overlay" class="overlay">
+    <div id="overlay" class="overlay fade">
       <nav class="mobile-menu">
         <ul>
           <li class="has-children">
@@ -44,7 +44,7 @@
   (function() {
     'use strict';
 
-    var el = document.querySelectorAll('#mobile-btn, #overlay');
+    var el = document.querySelectorAll('#menu-btn, #overlay');
 
     el[0].addEventListener('click', function() {
       this.classList.toggle('active');
