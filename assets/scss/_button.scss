@@ -1,0 +1,56 @@
+// Create the mobile button
+.menu-btn {
+  position: fixed;
+  top: 5%;
+  right: 5%;
+
+  width: $mobile-btn-width;
+  height: $mobile-btn-height;
+
+  cursor: pointer;
+  z-index: 100;
+  transition: all .25s ease;
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &.active {
+    .top {
+      transform: translateY(11px) translateX(0) rotate(45deg);
+      background: $color-close;
+    }
+
+    .middle {
+      opacity: 0;
+      background: $color-close;
+    }
+
+    .bottom {
+      transform: translateY(-11px) translateX(0) rotate(-45deg);
+      background: $color-close;
+    }
+  }
+
+  span {
+    background: $color-base;
+    border: none;
+    height: 5px;
+    width: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transition: all .35s ease;
+    cursor: pointer;
+
+    &:nth-of-type(2) {
+      top: 11px;
+    }
+
+    &:nth-of-type(3) {
+      top: 22px;
+    }
+  }
+}

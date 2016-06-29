@@ -1,0 +1,53 @@
+// Style the mobile menu
+.mobile-menu {
+  text-align: center;
+  max-width: 80%;
+
+  ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+
+    * + * {
+      margin: .5em 0;
+    }
+
+    li {
+      flex: 1 auto;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      a {
+        display: block;
+        overflow: hidden;
+        text-decoration: none;
+        color: $white;
+        padding: 1em 3em;
+        font-size: 1.75em;
+
+        &:hover {
+          color: $color-hover;
+          transition: all .35s ease;
+        }
+      }
+    }
+  }
+}
+
+
+.sub-menu {
+  .mobile-menu & {
+    display: none;
+  }
+}
+
+.has-children {
+  > a:after {
+
+  }
+}
