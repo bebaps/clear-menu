@@ -27,7 +27,7 @@
         overflow: hidden;
         text-decoration: none;
         color: $white;
-        padding: 1em 3em;
+        padding: .25em 3em;
         font-size: 1.75em;
 
         &:hover {
@@ -43,7 +43,14 @@
 .sub-menu {
   .mobile-menu & {
     display: none;
+
+    a {
+      font-size: 1em;
+      padding: .5em 3em;
+    }
   }
+
+
 }
 
 .has-children > a {
@@ -52,12 +59,16 @@
   &::after {
     content: '';
     display: block;
+    transition: all .25s ease;
+
     position: absolute;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
+
     width: 0;
     height: 0;
+
     border-top: 6px solid transparent;
     border-right: 12px solid transparent;
     border-bottom: 6px solid transparent;
@@ -65,6 +76,6 @@
   }
 
   &.submenu-open::after {
-    // @include transform(translateY(-50%) rotate(90deg));
+    transform: rotate(90deg);
   }
 }
