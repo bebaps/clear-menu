@@ -3,28 +3,53 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
 
   width: 100%;
-  height: 0vh;
+  height: 100vh;
 
   background: $color-base;
-  opacity: 0;
+  opacity: 1;
   visibility: hidden;
-  transition: all .30s;
+  transition: all .30s ease-in-out;
   overflow: hidden;
+
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
 
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
 
-  &.open {
-    opacity: .9;
-    visibility: visible;
-    height: 100vh;
+  &-top {
+    @extend .overlay;
+    transform: translateY(-100%);
   }
-}
 
-.fade {
-  height: 100vh;
+  &-bottom {
+    @extend .overlay;
+    transform: translateY(100%);
+  }
+
+  &-left {
+    @extend .overlay;
+    transform: translateX(-100%);
+  }
+
+  &-right {
+    @extend .overlay;
+    transform: translateX(100%);
+  }
+
+  &-fade {
+    @extend .overlay;
+    opacity: 0;
+  }
+
+  &.open {
+    visibility: visible;
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
