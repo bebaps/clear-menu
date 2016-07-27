@@ -4,32 +4,43 @@
   <meta charset="UTF-8">
   <title>Mobile Menu</title>
 
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
   <header>
-    <div id="menu-btn" class="menu-btn">
-      <span class="top"></span>
-      <span class="middle"></span>
-      <span class="bottom"></span>
-    </div>
+    <button id="cm-hamburger" class="cm-hamburger cm-hamburger-slider" type="button" tabindex="0"
+     aria-label="Menu" role="button" aria-controls="navigation">
+      <span class="cm-hamburger-bun">
+        <span class="cm-hamburger-meat"></span>
+      </span>
+    </button>
 
-    <div id="overlay" class="overlay-top">
-      <nav class="mobile-menu">
-        <ul>
-          <li class="has-children">
+    <div id="cm-overlay" class="cm-overlay cm-reveal-top">
+      <nav class="cm-nav" role="navigation">
+        <ul class="mobile-menu">
+          <li class="cm-has-submenu">
             <a href="#">Link</a>
-            <ul class="sub-menu">
+            <ul>
               <li><a href="#">Sub Link</a></li>
               <li><a href="#">Sub Link</a></li>
               <li><a href="#">Sub Link</a></li>
             </ul>
           </li>
           <li><a href="#">Link</a></li>
-          <li class="has-children">
+          <li class="cm-has-submenu">
             <a href="#">Link</a>
-            <ul class="sub-menu">
+            <ul>
+              <li><a href="#">Sub Link</a></li>
+              <li><a href="#">Sub Link</a></li>
+              <li><a href="#">Sub Link</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Link</a></li>
+          <li><a href="#">Link</a></li>
+          <li class="cm-has-submenu">
+            <a href="#">Link</a>
+            <ul>
               <li><a href="#">Sub Link</a></li>
               <li><a href="#">Sub Link</a></li>
               <li><a href="#">Sub Link</a></li>
@@ -55,11 +66,11 @@
   (function() {
     'use strict';
 
-    var el = document.querySelectorAll('#menu-btn, #overlay');
+    var el = document.querySelectorAll('#cm-hamburger, #cm-overlay');
 
     el[0].addEventListener('click', function() {
-      this.classList.toggle('active');
-      el[1].classList.toggle('open');
+      this.classList.toggle('cm-is-active');
+      el[1].classList.toggle('cm-is-visible');
     });
   })();
 </script> -->

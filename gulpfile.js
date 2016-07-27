@@ -2,6 +2,10 @@ var gulp         = require('gulp'),
     browserSync  = require('browser-sync').create(),
     autoprefixer = require('gulp-autoprefixer'),
     sourcemaps   = require('gulp-sourcemaps'),
+    postscss     = require("postcss-scss"),
+    reporter     = require('postcss-reporter'),
+    cssnext      = require('postcss-cssnext'),
+    stylelint    = require('gulp-stylelint'),
     sass         = require('gulp-sass');
 
 var options = {
@@ -26,6 +30,14 @@ var options = {
       '> 1%',
       'last 2 versions'
     ]
+  },
+  stylelint: {
+    reporters: [
+      {formatter: 'string', console: true}
+    ]
+  },
+  postcss : {
+    syntax: 'scss'
   }
 };
 
@@ -51,5 +63,12 @@ gulp.task( 'sass', function() {
     .pipe( gulp.dest( 'assets/css' ) )
     .pipe( browserSync.stream() );
 } );
+
+// Lint Sass/CSS
+gulp.task('lint:sass', function() {
+  return gulp
+    .src(sources.sass)
+    .pipe(stylelint(options.stylelint));
+});
 
 gulp.task('default', ['server']);

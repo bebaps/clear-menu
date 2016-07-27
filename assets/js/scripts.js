@@ -1,14 +1,14 @@
 $(function() {
-
-  $('#menu-btn').click(function() {
-    $(this).toggleClass('active');
-    $('#overlay').toggleClass('open');
+  $('#cm-hamburger').click(function() {
+    $(this).toggleClass('cm-is-active');
+    $('#cm-overlay').toggleClass('cm-is-visible');
   });
 
   // TODO: can this be simplified with some CSS? Not rely on the jQuery animations?
-  $('.has-children').children('a').on('click', function(event){
+  //TODO: inject a button to serve as the toggle. Click on the button to activate the behavior
+  $('.cm-has-submenu').find('> a::after').on('click', 'a', function(event){
     event.preventDefault();
-    $(this).toggleClass('submenu-open').next('.sub-menu').slideToggle(200).end().parent('.has-children').siblings('.has-children').children('a').removeClass('submenu-open').next('.sub-menu').slideUp(200);
+    $(this).parent().toggleClass('cm-has-submenu-open').find('ul').slideToggle(200).end().parent('.cm-has-submenu').siblings('.cm-has-submenu').children('a').removeClass('cm-has-submenu-open').next('ul').slideUp(200);
   });
 
 });
