@@ -2,10 +2,10 @@ var gulp         = require('gulp'),
     browserSync  = require('browser-sync').create(),
     autoprefixer = require('gulp-autoprefixer'),
     sourcemaps   = require('gulp-sourcemaps'),
-    postscss     = require("postcss-scss"),
-    reporter     = require('postcss-reporter'),
-    cssnext      = require('postcss-cssnext'),
-    stylelint    = require('gulp-stylelint'),
+    // postscss     = require("postcss-scss"),
+    // reporter     = require('postcss-reporter'),
+    // cssnext      = require('postcss-cssnext'),
+    // stylelint    = require('gulp-stylelint'),
     sass         = require('gulp-sass');
 
 var options = {

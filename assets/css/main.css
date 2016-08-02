@@ -167,27 +167,56 @@
   padding: 0.5em 3em;
 }
 
-.cm-has-submenu > a::after {
-  content: '';
-  display: block;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 6px solid transparent;
-  border-right: 12px solid transparent;
-  border-bottom: 6px solid transparent;
-  border-left: 12px solid white;
+.cm-has-submenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.cm-has-submenu > a {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 75%;
+          flex: 1 0 75%;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.cm-has-submenu > ul {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  display: none;
+}
+
+.cm-has-submenu > button {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
 }
 
 .cm-has-submenu-open > a::after {
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
+}
+
+.cm-sub-trigger {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
+.cm-sub-trigger:hover {
+  cursor: pointer;
 }
 
 body {
