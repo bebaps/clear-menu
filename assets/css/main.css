@@ -1,59 +1,17 @@
-.menu-btn {
-  position: fixed;
-  top: 5%;
-  right: 5%;
-  width: 35px;
-  height: 30px;
-  cursor: pointer;
-  z-index: 100;
-  -webkit-transition: all .25s ease;
-  transition: all .25s ease;
-}
-
-.menu-btn:hover {
-  opacity: .9;
-}
-
-.menu-btn.active .top {
-  -webkit-transform: translateY(11px) translateX(0) rotate(45deg);
-          transform: translateY(11px) translateX(0) rotate(45deg);
-  background: #da4949;
-}
-
-.menu-btn.active .middle {
-  opacity: 0;
-  background: #da4949;
-}
-
-.menu-btn.active .bottom {
-  -webkit-transform: translateY(-11px) translateX(0) rotate(-45deg);
-          transform: translateY(-11px) translateX(0) rotate(-45deg);
-  background: #da4949;
-}
-
-.menu-btn span {
-  background: rgba(0, 0, 0, 0.9);
-  border: none;
-  height: 5px;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  -webkit-transition: all .35s ease;
-  transition: all .35s ease;
-  cursor: pointer;
-}
-
-.menu-btn span:nth-of-type(2) {
-  top: 11px;
-}
-
-.menu-btn span:nth-of-type(3) {
-  top: 22px;
-}
-
+/* -----------------------------------------------------------------------------
+  >>> Table of Contents
+    # Overlay
+    # Menu
+      ## Sub Menu
+    # Sub Menu Trigger
+    # Hamburger Button
+----------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------
+  # Overlay
+------------------------------------------------------------------------------------------------- */
 .cm-overlay {
-  padding: 20px 0;
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -61,8 +19,8 @@
   background: rgba(0, 0, 0, 0.9);
   opacity: 1;
   visibility: hidden;
-  -webkit-transition: all .30s ease-in-out;
-  transition: all .30s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   overflow: scroll;
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
@@ -74,19 +32,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-.cm-overlay else {
-  width: auto;
-}
-
-.cm-overlay else {
-  height: auto;
 }
 
 .cm-reveal-top {
@@ -120,54 +65,49 @@
   opacity: 1;
 }
 
-.cm-nav {
-  width: 90%;
-  height: 50%;
-}
-
-.cm-nav > ul {
-  margin: 0 auto;
+/* -------------------------------------------------------------------------------------------------
+  # Menu
+------------------------------------------------------------------------------------------------- */
+.cm-menu {
+  margin: 0;
   padding: 0;
+  position: relative;
+  top: 20%;
+  width: 90%;
+  list-style-type: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: column nowrap;
       flex-flow: column nowrap;
-  list-style: none;
 }
 
-.cm-nav > ul li {
+.cm-menu li {
   -webkit-box-flex: 1;
       -ms-flex: 1 auto;
           flex: 1 auto;
 }
 
-.cm-nav > ul a {
+.cm-menu a {
   position: relative;
   display: block;
   overflow: hidden;
   text-decoration: none;
-  color: #fff;
-  font-size: 1.75em;
+  color: white;
+  font-size: 1.75rem;
 }
 
-.cm-nav > ul a:hover {
-  color: #7fda89;
-  -webkit-transition: all 0.35s ease;
-  transition: all 0.35s ease;
+.cm-menu a:hover {
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
 }
 
-.cm-nav > ul > ul {
-  display: none;
-}
-
-.cm-nav > ul > ul a {
-  position: relative;
-  font-size: 1em;
-  padding: 0.5em 3em;
-}
-
+/* -----------------------------------------------------------------------------
+  ## Sub Menu
+----------------------------------------------------------------------------- */
 .cm-has-submenu {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -176,7 +116,6 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  position: relative;
 }
 
 .cm-has-submenu > a {
@@ -189,13 +128,24 @@
 }
 
 .cm-has-submenu > ul {
+  margin: 0;
+  padding: 0;
+  display: none;
   -webkit-box-ordinal-group: 4;
       -ms-flex-order: 3;
           order: 3;
-  display: none;
 }
 
-.cm-has-submenu > button {
+.cm-has-submenu > ul a {
+  position: relative;
+  font-size: 1rem;
+  padding: 0.5em 2em;
+}
+
+/* -------------------------------------------------------------------------------------------------
+  # Sub Menu Trigger
+------------------------------------------------------------------------------------------------- */
+.cm-submenu-trigger {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 25%;
           flex: 0 0 25%;
@@ -204,47 +154,8 @@
           order: 2;
 }
 
-.cm-has-submenu-open > a::after {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-.cm-sub-trigger {
-  -webkit-box-flex: 1;
-      -ms-flex: auto;
-          flex: auto;
-}
-
-.cm-sub-trigger:hover {
-  cursor: pointer;
-}
-
-body {
-  background: rgba(239, 239, 239, 0.7);
-}
-
-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100vh;
-}
-
-main div {
-  width: 60%;
-  margin-left: 5%;
-  font-family: Helvetica, sans-serif;
-  font-size: 1.25rem;
-  line-height: 1.3;
-  -webkit-transform: translateY(-75%);
-          transform: translateY(-75%);
-}
-
 /*--------------------------------------------------------------------------------------------------
-  Hamburger Icon
+  # Hamburger Button
 --------------------------------------------------------------------------------------------------*/
 .cm-hamburger {
   position: fixed;
@@ -305,7 +216,7 @@ main div {
 }
 
 .cm-hamburger-meat::before, .cm-hamburger-meat::after {
-  content: "";
+  content: '';
   display: block;
 }
 

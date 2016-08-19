@@ -1,36 +1,28 @@
-// Create the overlay
+/* -------------------------------------------------------------------------------------------------
+  # Overlay
+------------------------------------------------------------------------------------------------- */
 .cm-overlay {
-  padding: 20px 0;
+  width: $cm-overlay-width;
+  height: $cm-overlay-height;
 
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: $cm-overlay-position;
+  top: $cm-overlay-top;
+  left: $cm-overlay-left;
   z-index: 10;
 
-  background: $color-base;
+  background: $cm-overlay-background;
   opacity: 1;
   visibility: hidden;
-  transition: all .30s ease-in-out;
+  transition: all $cm-overlay-speed $cm-overlay-transition;
   overflow: scroll;
 
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
 
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-
-  @if $overlay-full-width {
-    width: 100%;
-  } else {
-    width: auto;
-  }
-
-  @if $overlay-full-height {
-    height: 100%;
-  } else {
-    height: auto;
+  @if ($flexbox) {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
   }
 }
 
