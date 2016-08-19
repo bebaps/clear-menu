@@ -5,6 +5,26 @@
   <title>Mobile Menu</title>
 
   <link rel="stylesheet" href="assets/css/main.css">
+  <style type="text/css" media="screen">
+    body {
+      background: rgba(239, 239, 239, 0.7);
+    }
+
+    main {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+    }
+
+    div {
+      width: 60%;
+      margin-left: 5%;
+      font-family: Helvetica, sans-serif;
+      font-size: 1.25rem;
+      line-height: 1.3;
+      transform: translateY(-75%);
+    }
+  </style>
 </head>
 <body>
 
@@ -16,69 +36,35 @@
       </span>
     </button>
 
-    <div id="cm-overlay" class="cm-overlay cm-reveal-top">
-      <nav class="cm-nav" role="navigation">
-        <ul class="mobile-menu">
-          <li class="cm-has-submenu">
-            <a href="#">Link</a>
-            <ul>
-              <li><a href="#">Sub Link</a></li>
-              <li><a href="#">Sub Link</a></li>
-              <li><a href="#">Sub Link</a></li>
-            </ul>
-            <button class="cm-sub-trigger" type="button" aria-label="Sub-Menu" role="button" aria-controls="navigation">Sub</button>
-          </li>
-          <li><a href="#">Link</a></li>
-          <li class="cm-has-submenu">
-            <a href="#">Link</a>
-            <ul>
-              <li><a href="#">Sub Link</a></li>
-              <li><a href="#">Sub Link</a></li>
-              <li><a href="#">Sub Link</a></li>
-            </ul>
-            <button class="cm-sub-trigger" type="button" aria-label="Sub-Menu" role="button" aria-controls="navigation">Sub</button>
-          </li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li class="cm-has-submenu">
-            <a href="#">Link</a>
-            <ul>
-              <li><a href="#">Sub Link</a></li>
-              <li><a href="#">Sub Link</a></li>
-              <li><a href="#">Sub Link</a></li>
-            </ul>
-            <button class="cm-sub-trigger" type="button" aria-label="Sub-Menu" role="button" aria-controls="navigation">Sub</button>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <nav id="cm-overlay" class="cm-overlay cm-reveal-top" role="navigation">
+      <ul class="cm-menu">
+        <li class="cm-has-submenu">
+          <a href="#">Link</a>
+          <ul>
+            <li><a href="#">Sub Link</a></li>
+            <li><a href="#">Sub Link</a></li>
+            <li><a href="#">Sub Link</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Link</a></li>
+        <li class="cm-has-submenu">
+          <a href="#">Link</a>
+          <ul>
+            <li><a href="#">Sub Link</a></li>
+            <li><a href="#">Sub Link</a></li>
+            <li><a href="#">Sub Link</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <div>
-      <p>A simple menu, replicating various popular reveals (top, left, bottom, right, and fade).  Change the class on the <code>div#overlay</code> to <code>overlay-top</code>, <code>overlay-right</code>, <code>overlay-bottom</code>, <code>overlay-left</code>, or <code>overlay-fade</code> to see the various effects. Ideal for mobile devices.</p>
-    </div>
+    <p>A simple menu, replicating various popular reveals (top, left, bottom, right, and fade).  Change the class on the <code>div#overlay</code> to <code>overlay-top</code>, <code>overlay-right</code>, <code>overlay-bottom</code>, <code>overlay-left</code>, or <code>overlay-fade</code> to see the various effects. Ideal for mobile devices.</p>
   </main>
 
-  <footer>
-
-  </footer>
-
-<!-- Call with vanilla JS -->
-<!-- <script>
-  (function() {
-    'use strict';
-
-    var el = document.querySelectorAll('#cm-hamburger, #cm-overlay');
-
-    el[0].addEventListener('click', function() {
-      this.classList.toggle('cm-is-active');
-      el[1].classList.toggle('cm-is-visible');
-    });
-  })();
-</script> -->
-
-<!-- Or call via jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="assets/js/scripts.js" async defer></script>
 </body>

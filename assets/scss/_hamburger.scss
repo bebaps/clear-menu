@@ -1,8 +1,6 @@
-// Improved hamburger icon, stolen from https://github.com/jonsuh/hamburgers
-// Changed some class names out of personal preference
-
+// Modified from https://github.com/jonsuh/hamburgers
 /*--------------------------------------------------------------------------------------------------
-  Hamburger Icon
+  # Hamburger Button
 --------------------------------------------------------------------------------------------------*/
 .cm-hamburger {
   position: fixed;
@@ -31,8 +29,7 @@
   &:hover {
     @if $hamburger-hover-use-filter == true {
       filter: $hamburger-hover-filter;
-    }
-    @else {
+    } @else {
       opacity: $hamburger-hover-opacity;
     }
   }
@@ -65,7 +62,7 @@
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     display: block;
   }
 

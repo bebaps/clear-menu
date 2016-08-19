@@ -1,82 +1,70 @@
-.cm-nav {
-  width: 90%;
-  height: 50%;
+/* -------------------------------------------------------------------------------------------------
+  # Menu
+------------------------------------------------------------------------------------------------- */
+.cm-menu {
+  margin: 0;
+  padding: 0;
+  position: $cm-menu-position;
+  top: $cm-menu-top;
+  width: $cm-menu-width;
+  list-style-type: none;
 
-// Mobile Menu
-// -----------------------------------------------------------------------------
-  > ul {
-    margin: 0 auto;
-    padding: 0;
+  @if ($flexbox) {
     display: flex;
     flex-flow: column nowrap;
-    list-style: none;
 
     li {
       flex: 1 auto;
     }
+  }
 
-    a {
-      position: relative;
-      display: block;
-      overflow: hidden;
-      text-decoration: none;
-      color: $white;
-      font-size: 1.75em;
+  a {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-decoration: none;
+    color: $cm-white;
+    font-size: $cm-menu-font-size;
 
-      &:hover {
-        color: $color-hover;
-        transition: all 0.35s ease;
+    &:hover {
+      color: rgba($cm-white, 0.5);
+      transition: all 0.35s ease-in-out;
+    }
+  }
+}
+
+/* -----------------------------------------------------------------------------
+  ## Sub Menu
+----------------------------------------------------------------------------- */
+@if ($submenus) {
+  .cm-has-submenu {
+    position: relative;
+
+    @if ($flexbox) {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+
+      > a {
+        flex: 1 0 75%;
+        order: 1;
       }
     }
 
-// Sub-Menu
-// -----------------------------------------------------------------------------
     > ul {
+      margin: 0;
+      padding: 0;
       display: none;
+
+      @if ($flexbox) {
+        order: 3;
+      }
 
       a {
         position: relative;
-        font-size: 1em;
-        padding: 0.5em 3em;
+        font-size: 1rem;
+        padding: 0.5em 2em;
       }
     }
-  }
-}
-
-.cm-has-submenu {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  position: relative;
-
-  > a {
-    flex: 1 0 75%;
-    order: 1;
-  }
-
-  > ul {
-    order: 3;
-    display: none;
-  }
-
-  > button {
-    flex: 0 0 25%;
-    order: 2;
-  }
-}
-
-.cm-has-submenu-open {
-  > a::after {
-    transform: rotate(90deg);
-  }
-}
-
-// Sub-menu button
-// -----------------------------------------------------------------------------
-.cm-sub-trigger {
-  flex: auto;
-
-  &:hover {
-    cursor: pointer;
   }
 }

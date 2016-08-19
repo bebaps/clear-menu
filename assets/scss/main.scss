@@ -1,8 +1,13 @@
-@import
-  'settings',
-  'button',
-  'overlay',
-  'menu',
-  'skin',
-  'hamburger'
-;
+/* -----------------------------------------------------------------------------
+  >>> Table of Contents
+    # Overlay
+    # Menu
+      ## Sub Menu
+    # Sub Menu Trigger
+    # Hamburger Button
+----------------------------------------------------------------------------- */
+@import 'settings';
+@import 'overlay';
+@import 'menu';
+@import 'sub-menu-trigger';
+@import 'hamburger';
