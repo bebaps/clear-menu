@@ -2,8 +2,39 @@
   # Sub Menu Trigger
 ------------------------------------------------------------------------------------------------- */
 .cm-submenu-trigger {
+  background: transparent;
+  border: none;
+
   @if ($flexbox) {
-    flex: 0 0 25%;
+    flex: auto;
     order: 2;
+
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  img {
+    width: 30px;
+    height: auto;
+  }
+
+  &::after {
+    content: '\ea50';
+    font-family: 'clear' !important;
+    font-size: 3rem;
+    color: $cm-trigger-color;
+    line-height: 1;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 0;
+    transform: rotate(90deg);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .cm-has-submenu-open &::after {
+    transform: rotate(180deg);
+    height: 25px;
+    margin-right: 10px;
   }
 }

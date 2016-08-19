@@ -1,11 +1,40 @@
 /* -----------------------------------------------------------------------------
   >>> Table of Contents
+    # Fonts
     # Overlay
     # Menu
       ## Sub Menu
     # Sub Menu Trigger
     # Hamburger Button
 ----------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------
+  # Fonts
+------------------------------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'clear';
+  src: url("../fonts/clear.eot?1maawd");
+  src: url("../fonts/clear.eot?1maawd#iefix") format("embedded-opentype"), url("../fonts/clear.ttf?1maawd") format("truetype"), url("../fonts/clear.woff?1maawd") format("woff"), url("../fonts/clear.svg?1maawd#clear") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="cm-icon-"],
+[class*="cm-icon-"] {
+  font-family: 'clear' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.cm-icon-arrow::before {
+  content: '\ea50';
+}
+
 /* -------------------------------------------------------------------------------------------------
   # Overlay
 ------------------------------------------------------------------------------------------------- */
@@ -146,12 +175,48 @@
   # Sub Menu Trigger
 ------------------------------------------------------------------------------------------------- */
 .cm-submenu-trigger {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 25%;
-          flex: 0 0 25%;
+  background: transparent;
+  border: none;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.cm-submenu-trigger img {
+  width: 30px;
+  height: auto;
+}
+
+.cm-submenu-trigger::after {
+  content: '\ea50';
+  font-family: 'clear' !important;
+  font-size: 3rem;
+  color: white;
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.cm-has-submenu-open .cm-submenu-trigger::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  height: 25px;
+  margin-right: 10px;
 }
 
 /*--------------------------------------------------------------------------------------------------
