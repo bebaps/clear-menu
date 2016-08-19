@@ -1,12 +1,24 @@
 {
-  "name": "mobile-menu",
+  "name": "clear-menu",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple mobile menu jQuery plugin",
+  "author": "Alexander Persky <info@alexanderpersky.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bebaps/clear-menu"
+  },
+  "bugs": {
+    "url": "https://github.com/bebaps/clear-menu/issues"
+  },
+  "keywords": [
+    "menu",
+    "mobile",
+    "flexbox"
+  ],
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.13.0",
@@ -14,9 +26,10 @@
     "gulp-autoprefixer": "^3.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-stylelint": "^3.0.0",
+    "normalize.css": "^4.2.0",
     "postcss-cssnext": "^2.7.0",
     "postcss-reporter": "^1.3.3",
-    "postcss-scss": "^0.1.8",
-    "gulp-stylelint": "^3.0.0"
+    "postcss-scss": "^0.1.8"
   }
 }
