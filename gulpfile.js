@@ -28,13 +28,14 @@ var options = {
   autoprefixer : {
     browsers : [
       '> 1%',
-      'last 2 versions'
+      'last 3 versions'
     ]
   },
   stylelint: {
-    reporters: [
-      {formatter: 'string', console: true}
-    ]
+    reporters: [{
+      formatter: 'string',
+      console: true
+    }]
   },
   postcss : {
     syntax: 'scss'
@@ -47,14 +48,14 @@ gulp.task( 'server', ['sass'], function() {
     browserSync.init( options.browsersync )
   }
 
-  gulp.watch('assets/scss/**/*.scss', ['sass']);
+  gulp.watch('assets/scss/*.scss', ['sass']);
   gulp.watch('./*.html').on('change', browserSync.reload);
 } );
 
 // Compile Sass
 gulp.task( 'sass', function() {
   return gulp
-    .src( 'assets/scss/**/*.scss' )
+    .src( 'assets/scss/*.scss' )
     .pipe( sourcemaps.init() )
     .pipe( sass( options.sass )
     .on( 'error', sass.logError ) )
@@ -67,7 +68,7 @@ gulp.task( 'sass', function() {
 // Lint Sass/CSS
 gulp.task('lint:sass', function() {
   return gulp
-    .src(sources.sass)
+    .src( 'assets/scss/*.scss' )
     .pipe(stylelint(options.stylelint));
 });
 

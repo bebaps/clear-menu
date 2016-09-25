@@ -1,25 +1,16 @@
 /* -----------------------------------------------------------------------------
-  >>> Table of Contents
-    # Fonts
-    # Overlay
-    # Menu
-      ## Sub Menu
-    # Sub Menu Trigger
-    # Hamburger Button
+  # Custom Fonts
 ----------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------------------------------
-  # Fonts
-------------------------------------------------------------------------------------------------- */
 @font-face {
   font-family: 'clear';
-  src: url("../fonts/clear.eot?1maawd");
-  src: url("../fonts/clear.eot?1maawd#iefix") format("embedded-opentype"), url("../fonts/clear.ttf?1maawd") format("truetype"), url("../fonts/clear.woff?1maawd") format("woff"), url("../fonts/clear.svg?1maawd#clear") format("svg");
+  src: url(../fonts/clear.eot?1maawd);
+  src: url(../fonts/clear.eot?1maawd#iefix) format("embedded-opentype"), url(../fonts/clear.ttf?1maawd) format("truetype"), url(../fonts/clear.woff?1maawd) format("woff"), url(../fonts/clear.svg?1maawd#clear) format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="cm-icon-"],
-[class*="cm-icon-"] {
+[class^='cm-icon-'],
+[class*='cm-icon-'] {
   font-family: 'clear' !important;
   speak: none;
   font-style: normal;
@@ -35,9 +26,9 @@
   content: '\ea50';
 }
 
-/* -------------------------------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------
   # Overlay
-------------------------------------------------------------------------------------------------- */
+----------------------------------------------------------------------------- */
 .cm-overlay {
   width: 100%;
   height: 100%;
@@ -45,41 +36,52 @@
   top: 0;
   left: 0;
   z-index: 10;
-  background: rgba(0, 0, 0, 0.9);
+  background: black;
   opacity: 1;
   visibility: hidden;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   overflow: scroll;
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: column nowrap;
-      flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
   -webkit-box-align: center;
+  -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
+.cm-overlay * {
+  color: white;
+}
+
 .cm-reveal-top {
   -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
           transform: translateY(-100%);
 }
 
 .cm-reveal-bottom {
   -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
           transform: translateY(100%);
 }
 
 .cm-reveal-left {
   -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
           transform: translateX(-100%);
 }
 
 .cm-reveal-right {
   -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
           transform: translateX(100%);
 }
 
@@ -90,13 +92,14 @@
 .cm-is-visible {
   visibility: visible;
   -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
           transform: translateY(0);
   opacity: 1;
 }
 
-/* -------------------------------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------
   # Menu
-------------------------------------------------------------------------------------------------- */
+----------------------------------------------------------------------------- */
 .cm-menu {
   margin: 0;
   padding: 0;
@@ -105,25 +108,48 @@
   width: 90%;
   list-style-type: none;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: column nowrap;
-      flex-flow: column nowrap;
+  -webkit-flex-flow: column nowrap;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+@media screen and (orientation: landscape) and (max-width: 768px) {
+  .cm-menu {
+    width: 50%;
+    -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+  }
 }
 
 .cm-menu li {
   -webkit-box-flex: 1;
+  -webkit-flex: 1 auto;
       -ms-flex: 1 auto;
           flex: 1 auto;
+}
+
+@media screen and (orientation: landscape) and (max-width: 768px) {
+  .cm-menu li {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 50%;
+        -ms-flex: 1 50%;
+            flex: 1 50%;
+  }
 }
 
 .cm-menu a {
   position: relative;
   display: block;
+  padding: 0.25em 0;
   overflow: hidden;
   text-decoration: none;
   color: white;
   font-size: 1.75rem;
+  font-family: inherit;
 }
 
 .cm-menu a:hover {
@@ -132,61 +158,29 @@
   transition: all 0.35s ease-in-out;
 }
 
-/* -----------------------------------------------------------------------------
+/* ---------------------------------------------------------
   ## Sub Menu
------------------------------------------------------------------------------ */
-.cm-has-submenu {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-flow: row wrap;
-      flex-flow: row wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.cm-has-submenu > a {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 75%;
-          flex: 1 0 75%;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-}
-
-.cm-has-submenu > ul {
-  margin: 0;
-  padding: 0;
-  display: none;
-  -webkit-box-ordinal-group: 4;
-      -ms-flex-order: 3;
-          order: 3;
-}
-
-.cm-has-submenu > ul a {
-  position: relative;
-  font-size: 1rem;
-  padding: 0.5em 2em;
-}
-
-/* -------------------------------------------------------------------------------------------------
+--------------------------------------------------------- */
+/* -----------------------------------------------------------------------------
   # Sub Menu Trigger
-------------------------------------------------------------------------------------------------- */
+----------------------------------------------------------------------------- */
 .cm-submenu-trigger {
   background: transparent;
   border: none;
   -webkit-box-flex: 1;
+  -webkit-flex: auto;
       -ms-flex: auto;
           flex: auto;
   -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
       -ms-flex-order: 2;
           order: 2;
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
@@ -207,29 +201,35 @@
   -moz-osx-font-smoothing: grayscale;
   height: 0;
   -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
           transform: rotate(90deg);
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
-.cm-has-submenu-open .cm-submenu-trigger::after {
+.cm-submenu-trigger .cm-has-submenu-open::after {
   -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
           transform: rotate(180deg);
   height: 25px;
   margin-right: 10px;
 }
 
-/*--------------------------------------------------------------------------------------------------
-  # Hamburger Button
---------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------
+  # Hamburger Button - Modified from https://github.com/jonsuh/hamburgers
+------------------------------------------------------------------------------*/
 .cm-hamburger {
   position: fixed;
   top: 5%;
   right: 5%;
   z-index: 100;
-  padding: 15px 15px;
-  display: inline-block;
+  padding: 10px 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   cursor: pointer;
+  background-color: #eeeeee;
   -webkit-transition-property: opacity, -webkit-filter;
   transition-property: opacity, -webkit-filter;
   transition-property: opacity, filter;
@@ -238,17 +238,11 @@
           transition-duration: 0.15s;
   -webkit-transition-timing-function: linear;
           transition-timing-function: linear;
-  font: inherit;
-  color: inherit;
-  text-transform: none;
-  background-color: transparent;
-  border: 0;
-  margin: 0;
-  overflow: visible;
 }
 
 .cm-hamburger:hover {
   opacity: 0.7;
+  background: none;
 }
 
 .cm-hamburger-bun {
@@ -267,7 +261,7 @@
 .cm-hamburger-meat, .cm-hamburger-meat::before, .cm-hamburger-meat::after {
   width: 40px;
   height: 4px;
-  background-color: #000;
+  background-color: black;
   border-radius: 4px;
   position: absolute;
   -webkit-transition-property: -webkit-transform;
@@ -293,6 +287,9 @@
   bottom: -10px;
 }
 
+/* ---------------------------------------------------------
+  ## Slider Hamburger
+--------------------------------------------------------- */
 .cm-hamburger-slider .cm-hamburger-meat {
   top: 2px;
 }
@@ -316,20 +313,20 @@
 .cm-hamburger-slider.cm-is-active .cm-hamburger-meat {
   -webkit-transform: translate3d(0, 10px, 0) rotate(45deg);
           transform: translate3d(0, 10px, 0) rotate(45deg);
-  background-color: #DA4949;
+  background-color: #da4949;
 }
 
 .cm-hamburger-slider.cm-is-active .cm-hamburger-meat::before {
   -webkit-transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
           transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
   opacity: 0;
-  background-color: #DA4949;
+  background-color: #da4949;
 }
 
 .cm-hamburger-slider.cm-is-active .cm-hamburger-meat::after {
   -webkit-transform: translate3d(0, -20px, 0) rotate(-90deg);
           transform: translate3d(0, -20px, 0) rotate(-90deg);
-  background-color: #DA4949;
+  background-color: #da4949;
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=clear-menu.css.map */

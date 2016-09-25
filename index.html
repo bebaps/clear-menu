@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
   <title>Clear Menu Demo</title>
 
   <link rel="stylesheet" href="assets/css/normalize.css">
-  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/clear-menu.css">
+
   <style type="text/css" media="screen">
     body {
       background: rgba(239, 239, 239, 0.7);
@@ -28,7 +32,6 @@
   </style>
 </head>
 <body>
-
   <header>
     <button id="cm-hamburger" class="cm-hamburger cm-hamburger-slider" type="button" tabindex="0"
      aria-label="Menu" role="button" aria-controls="navigation">
@@ -66,7 +69,13 @@
     <p>A simple menu, replicating various popular reveals (top, left, bottom, right, and fade).  Change the class on the <code>div#overlay</code> to <code>overlay-top</code>, <code>overlay-right</code>, <code>overlay-bottom</code>, <code>overlay-left</code>, or <code>overlay-fade</code> to see the various effects. Ideal for mobile devices.</p>
   </main>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="assets/js/scripts.js" async defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <script src="assets/js/clear-menu.js" async defer></script>
+  <script>
+    $(function() {
+      $('#cm-hamburger').clearmenu();
+    });
+  </script>
+
 </body>
 </html>
