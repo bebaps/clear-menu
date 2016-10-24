@@ -1,0 +1,55 @@
+/* -------------------------------------------------------------------------------------------------
+  # Panel
+------------------------------------------------------------------------------------------------- */
+.cm-overlay {
+    width: $cm-overlay_width;
+    height: $cm-overlay_height;
+
+    position: $cm-overlay_position;
+    top: $cm-overlay_top;
+    left: $cm-overlay_left;
+    z-index: 99;
+
+    background: $cm-color_overlay;
+    opacity: 1;
+    visibility: hidden;
+    transition: all $cm-overlay_speed $cm-overlay_transition;
+    overflow: scroll;
+
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    * {
+        color: $cm-color_white;
+    }
+}
+
+.cm-reveal-top {
+    transform: translateY(-100%);
+}
+
+.cm-reveal-bottom {
+    transform: translateY(100%);
+}
+
+.cm-reveal-left {
+    transform: translateX(-100%);
+}
+
+.cm-reveal-right {
+    transform: translateX(100%);
+}
+
+.cm-reveal-fade {
+    opacity: 0;
+}
+
+.cm-is-visible {
+    visibility: visible;
+    transform: translateY(0);
+    opacity: 1;
+}

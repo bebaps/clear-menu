@@ -1,6 +1,60 @@
-/* -----------------------------------------------------------------------------
-  # Custom Fonts
------------------------------------------------------------------------------ */
+menu,
+nav,
+section {
+  display: block;
+}
+
+[hidden] {
+  display: none;
+}
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+a:active, a:hover {
+  outline-width: 0;
+}
+
+img {
+  border-style: none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+button {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+  text-transform: none;
+}
+
+button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+button,
+html [type="button"] {
+  -webkit-appearance: button;
+}
+
+/* -------------------------------------------------------------------------------------------------
+  # Fonts
+------------------------------------------------------------------------------------------------- */
 @font-face {
   font-family: 'clear';
   src: url(../fonts/clear.eot?1maawd);
@@ -26,21 +80,147 @@
   content: '\ea50';
 }
 
-/* -----------------------------------------------------------------------------
-  # Overlay
------------------------------------------------------------------------------ */
+/* -------------------------------------------------------------------------------------------------
+  # Buttons
+------------------------------------------------------------------------------------------------- */
+.cm-hamburger {
+  position: relative;
+  z-index: 100;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+}
+
+.cm-hamburger-bun {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 24px;
+}
+
+.cm-hamburger-meat {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.cm-hamburger-meat, .cm-hamburger-meat::before, .cm-hamburger-meat::after {
+  position: absolute;
+  border-radius: 2px;
+  background-color: #000;
+  width: 40px;
+  height: 4px;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.cm-hamburger-meat::before, .cm-hamburger-meat::after {
+  content: "";
+  display: block;
+}
+
+.cm-hamburger-meat::before {
+  top: -10px;
+}
+
+.cm-hamburger-meat::after {
+  bottom: -10px;
+}
+
+.cm-hamburger-slider .cm-hamburger-meat {
+  top: 2px;
+}
+
+.cm-hamburger-slider .cm-hamburger-meat::before {
+  top: 10px;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.cm-hamburger-slider .cm-hamburger-meat::after {
+  top: 20px;
+}
+
+.cm-hamburger-slider.cm-is-active .cm-hamburger-meat {
+  -webkit-transform: translate3d(0, 10px, 0) rotate(45deg);
+          transform: translate3d(0, 10px, 0) rotate(45deg);
+  background-color: #da4949;
+}
+
+.cm-hamburger-slider.cm-is-active .cm-hamburger-meat::before {
+  -webkit-transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+          transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
+  opacity: 0;
+  background-color: #da4949;
+}
+
+.cm-hamburger-slider.cm-is-active .cm-hamburger-meat::after {
+  -webkit-transform: translate3d(0, -20px, 0) rotate(-90deg);
+          transform: translate3d(0, -20px, 0) rotate(-90deg);
+  background-color: #da4949;
+}
+
+.cm-submenu-trigger {
+  background: transparent;
+  border: none;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+      -ms-flex: auto;
+          flex: auto;
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+      -ms-flex-order: 2;
+          order: 2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.cm-submenu-trigger::after {
+  content: "\ea50";
+  font-family: "clear" !important;
+  font-size: 3rem;
+  color: white;
+  line-height: 1;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 0;
+  -webkit-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.cm-submenu-trigger .cm-has-submenu-open::after {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+  height: 25px;
+  margin-right: 10px;
+}
+
+/* -------------------------------------------------------------------------------------------------
+  # Panel
+------------------------------------------------------------------------------------------------- */
 .cm-overlay {
   width: 100%;
   height: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 99;
   background: black;
   opacity: 1;
   visibility: hidden;
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
   overflow: scroll;
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
@@ -97,9 +277,9 @@
   opacity: 1;
 }
 
-/* -----------------------------------------------------------------------------
-  # Menu
------------------------------------------------------------------------------ */
+/* -------------------------------------------------------------------------------------------------
+  # Menu(s)
+------------------------------------------------------------------------------------------------- */
 .cm-menu {
   margin: 0;
   padding: 0;
@@ -147,186 +327,10 @@
   padding: 0.25em 0;
   overflow: hidden;
   text-decoration: none;
-  color: white;
-  font-size: 1.75rem;
-  font-family: inherit;
-}
-
-.cm-menu a:hover {
-  color: rgba(255, 255, 255, 0.5);
-  -webkit-transition: all 0.35s ease-in-out;
-  transition: all 0.35s ease-in-out;
 }
 
 /* ---------------------------------------------------------
   ## Sub Menu
 --------------------------------------------------------- */
-/* -----------------------------------------------------------------------------
-  # Sub Menu Trigger
------------------------------------------------------------------------------ */
-.cm-submenu-trigger {
-  background: transparent;
-  border: none;
-  -webkit-box-flex: 1;
-  -webkit-flex: auto;
-      -ms-flex: auto;
-          flex: auto;
-  -webkit-box-ordinal-group: 3;
-  -webkit-order: 2;
-      -ms-flex-order: 2;
-          order: 2;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
-
-.cm-submenu-trigger img {
-  width: 30px;
-  height: auto;
-}
-
-.cm-submenu-trigger::after {
-  content: '\ea50';
-  font-family: 'clear' !important;
-  font-size: 3rem;
-  color: white;
-  line-height: 1;
-  speak: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  height: 0;
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.cm-submenu-trigger .cm-has-submenu-open::after {
-  -webkit-transform: rotate(180deg);
-      -ms-transform: rotate(180deg);
-          transform: rotate(180deg);
-  height: 25px;
-  margin-right: 10px;
-}
-
-/*------------------------------------------------------------------------------
-  # Hamburger Button - Modified from https://github.com/jonsuh/hamburgers
-------------------------------------------------------------------------------*/
-.cm-hamburger {
-  position: fixed;
-  top: 5%;
-  right: 5%;
-  z-index: 100;
-  padding: 10px 10px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  cursor: pointer;
-  background-color: #eeeeee;
-  -webkit-transition-property: opacity, -webkit-filter;
-  transition-property: opacity, -webkit-filter;
-  transition-property: opacity, filter;
-  transition-property: opacity, filter, -webkit-filter;
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
-  -webkit-transition-timing-function: linear;
-          transition-timing-function: linear;
-}
-
-.cm-hamburger:hover {
-  opacity: 0.7;
-  background: none;
-}
-
-.cm-hamburger-bun {
-  width: 40px;
-  height: 24px;
-  display: inline-block;
-  position: relative;
-}
-
-.cm-hamburger-meat {
-  display: block;
-  top: 50%;
-  margin-top: -2px;
-}
-
-.cm-hamburger-meat, .cm-hamburger-meat::before, .cm-hamburger-meat::after {
-  width: 40px;
-  height: 4px;
-  background-color: black;
-  border-radius: 4px;
-  position: absolute;
-  -webkit-transition-property: -webkit-transform;
-  transition-property: -webkit-transform;
-  transition-property: transform;
-  transition-property: transform, -webkit-transform;
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-}
-
-.cm-hamburger-meat::before, .cm-hamburger-meat::after {
-  content: '';
-  display: block;
-}
-
-.cm-hamburger-meat::before {
-  top: -10px;
-}
-
-.cm-hamburger-meat::after {
-  bottom: -10px;
-}
-
-/* ---------------------------------------------------------
-  ## Slider Hamburger
---------------------------------------------------------- */
-.cm-hamburger-slider .cm-hamburger-meat {
-  top: 2px;
-}
-
-.cm-hamburger-slider .cm-hamburger-meat::before {
-  top: 10px;
-  -webkit-transition-property: opacity, -webkit-transform;
-  transition-property: opacity, -webkit-transform;
-  transition-property: transform, opacity;
-  transition-property: transform, opacity, -webkit-transform;
-  -webkit-transition-timing-function: ease;
-          transition-timing-function: ease;
-  -webkit-transition-duration: 0.2s;
-          transition-duration: 0.2s;
-}
-
-.cm-hamburger-slider .cm-hamburger-meat::after {
-  top: 20px;
-}
-
-.cm-hamburger-slider.cm-is-active .cm-hamburger-meat {
-  -webkit-transform: translate3d(0, 10px, 0) rotate(45deg);
-          transform: translate3d(0, 10px, 0) rotate(45deg);
-  background-color: #da4949;
-}
-
-.cm-hamburger-slider.cm-is-active .cm-hamburger-meat::before {
-  -webkit-transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
-          transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
-  opacity: 0;
-  background-color: #da4949;
-}
-
-.cm-hamburger-slider.cm-is-active .cm-hamburger-meat::after {
-  -webkit-transform: translate3d(0, -20px, 0) rotate(-90deg);
-          transform: translate3d(0, -20px, 0) rotate(-90deg);
-  background-color: #da4949;
-}
 
 /*# sourceMappingURL=clear-menu.css.map */

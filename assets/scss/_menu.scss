@@ -1,0 +1,66 @@
+/* -------------------------------------------------------------------------------------------------
+  # Menu(s)
+------------------------------------------------------------------------------------------------- */
+.cm-menu {
+    margin: 0;
+    padding: 0;
+    position: $cm-menu_position;
+    top: $cm-menu_top;
+    width: $cm-menu_width;
+    list-style-type: none;
+    display: flex;
+    flex-flow: column nowrap;
+
+    @media screen and (orientation: landscape) and (max-width: $cm-breakpoint) {
+        width: 50%;
+        flex-flow: row wrap;
+    }
+
+    li {
+        flex: 1 auto;
+
+        @media screen and (orientation: landscape) and (max-width: $cm-breakpoint) {
+            flex: 1 50%;
+        }
+    }
+
+    a {
+        position: relative;
+        display: block;
+        padding: 0.25em 0;
+        overflow: hidden;
+        text-decoration: none;
+    }
+}
+
+/* ---------------------------------------------------------
+  ## Sub Menu
+--------------------------------------------------------- */
+@if ($cm-submenus) {
+    .cm-has-submenu {
+        position: relative;
+
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+
+        > a {
+            flex: 1 0 75%;
+            order: 1;
+        }
+
+        > ul {
+            margin: 0;
+            padding: 0;
+            display: none;
+
+            order: 3;
+
+            a {
+                position: relative;
+                font-size: 1rem;
+                padding: 0.5em 2em;
+            }
+        }
+    }
+}

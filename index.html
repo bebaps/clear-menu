@@ -1,81 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Clear Menu Demo</title>
+    <title>Clear Menu Demo</title>
 
-  <link rel="stylesheet" href="assets/css/normalize.css">
-  <link rel="stylesheet" href="assets/css/clear-menu.css">
-
-  <style>
-    body {
-      background: rgba(239, 239, 239, 0.7);
-    }
-
-    main {
-      display: flex;
-      align-items: center;
-      height: 100vh;
-    }
-
-    div {
-      width: 60%;
-      margin-left: 5%;
-      font-family: Helvetica, sans-serif;
-      font-size: 1.25rem;
-      line-height: 1.3;
-      transform: translateY(-75%);
-    }
-  </style>
+    <link rel="stylesheet" href="assets/css/clear-menu.css">
 </head>
 <body>
-  <header>
-    <button id="cm-hamburger" class="cm-hamburger cm-hamburger-slider" type="button" tabindex="0"
-     aria-label="Menu" role="button" aria-controls="navigation">
-      <span class="cm-hamburger-bun">
-        <span class="cm-hamburger-meat"></span>
-      </span>
+
+    <button id="cm-hamburger" class="cm-hamburger cm-hamburger-slider" type="button">
+        <span class="cm-hamburger-bun">
+            <span class="cm-hamburger-meat"></span>
+        </span>
     </button>
 
-    <nav id="cm-overlay" class="cm-overlay cm-reveal-top" role="navigation">
-      <ul class="cm-menu">
-        <li class="cm-has-submenu">
-          <a href="#">Link</a>
-          <ul>
-            <li><a href="#">Sub Link</a></li>
-            <li><a href="#">Sub Link</a></li>
-            <li><a href="#">Sub Link</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Link</a></li>
-        <li class="cm-has-submenu">
-          <a href="#">Link</a>
-          <ul>
-            <li><a href="#">Sub Link</a></li>
-            <li><a href="#">Sub Link</a></li>
-            <li><a href="#">Sub Link</a></li>
-          </ul>
-        </li>
-        <li><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
-      </ul>
+    <nav id="cm-overlay" class="cm-overlay cm-reveal-top">
+        <ul>
+            <li>
+                <a href="#">Link</a>
+                <ul>
+                    <li><a href="#">Sub Link</a></li>
+                    <li><a href="#">Sub Link</a></li>
+                    <li><a href="#">Sub Link</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Link</a></li>
+            <li>
+                <a href="#">Link</a>
+                <ul>
+                    <li><a href="#">Sub Link</a></li>
+                    <li><a href="#">Sub Link</a></li>
+                    <li><a href="#">Sub Link</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+        </ul>
     </nav>
-  </header>
 
-  <main>
-    <p>A simple menu, replicating various popular reveals (top, left, bottom, right, and fade).  Change the class on the <code>div#overlay</code> to <code>overlay-top</code>, <code>overlay-right</code>, <code>overlay-bottom</code>, <code>overlay-left</code>, or <code>overlay-fade</code> to see the various effects. Ideal for mobile devices.</p>
-  </main>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-  <script src="assets/js/clear-menu.js" async defer></script>
-  <script>
-    $(function() {
-      $('#cm-hamburger').clearmenu();
-    });
-  </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="assets/js/clear-menu.js" async defer></script>
+<script>
+    $( function() {
+        $( '#cm-hamburger' ).clearmenu();
+    } );
+</script>
 </body>
 </html>

@@ -1,0 +1,120 @@
+/* -------------------------------------------------------------------------------------------------
+  # Buttons
+------------------------------------------------------------------------------------------------- */
+// Hamburger Button - Modified from https://github.com/jonsuh/hamburgers
+// -----------------------------------------------------------------------------
+.cm-hamburger {
+    position: relative;
+    z-index: 100;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+}
+
+.cm-hamburger-bun {
+    position: relative;
+    display: block;
+    width: $cm-hamburger_width;
+    height: ($cm-hamburger_height * 3) + ($cm-hamburger_spacing * 2);
+}
+
+.cm-hamburger-meat {
+    display: block;
+    top: 50%;
+    margin-top: $cm-hamburger_height / -2;
+
+    &,
+    &::before,
+    &::after {
+        position: absolute;
+        border-radius: 2px;
+        background-color: #000;
+        width: $cm-hamburger_width;
+        height: $cm-hamburger_height;
+        transition: all $cm-overlay_speed $cm-overlay_transition;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+    }
+
+    &::before {
+        top: ($cm-hamburger_spacing + $cm-hamburger_height) * -1;
+    }
+
+    &::after {
+        bottom: ($cm-hamburger_spacing + $cm-hamburger_height) * -1;
+    }
+}
+
+// Animation
+// -----------------------------------------------------------------------------
+.cm-hamburger-slider {
+    .cm-hamburger-meat {
+        top: $cm-hamburger_height / 2;
+
+        &::before {
+            top: $cm-hamburger_height + $cm-hamburger_spacing;
+            transition: all $cm-overlay_speed $cm-overlay_transition;
+        }
+
+        &::after {
+            top: ($cm-hamburger_height * 2) + ($cm-hamburger_spacing * 2);
+        }
+    }
+
+    &.cm-is-active {
+        .cm-hamburger-meat {
+            $y-offset: $cm-hamburger_spacing + $cm-hamburger_height;
+
+            transform: translate3d(0, $y-offset, 0) rotate(45deg);
+            background-color: $cm-hamburger_color-active;
+
+            &::before {
+                transform: rotate(-45deg) translate3d($cm-hamburger_width / -7, $cm-hamburger_spacing * -1, 0);
+                opacity: 0;
+                background-color: $cm-hamburger_color-active;
+            }
+
+            &::after {
+                transform: translate3d(0, $y-offset * -2, 0) rotate(-90deg);
+                background-color: $cm-hamburger_color-active;
+            }
+        }
+    }
+}
+
+// Sub-menu trigger
+// -----------------------------------------------------------------------------
+.cm-submenu-trigger {
+    background: transparent;
+    border: none;
+    flex: auto;
+    order: 2;
+    display: flex;
+    justify-content: flex-end;
+
+    &::after {
+        content: "\ea50";
+        font-family: "clear" !important;
+        font-size: 3rem;
+        color: $cm-color_trigger;
+        line-height: 1;
+        speak: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        height: 0;
+        transform: rotate(90deg);
+        transition: all $cm-overlay_speed $cm-overlay_transition;
+    }
+
+    .cm-has-submenu-open {
+        &::after {
+            transform: rotate(180deg);
+            height: 25px;
+            margin-right: 10px;
+        }
+    }
+}
