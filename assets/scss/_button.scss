@@ -31,7 +31,7 @@
         background-color: #000;
         width: $cm-hamburger_width;
         height: $cm-hamburger_height;
-        transition: all $cm-overlay_speed $cm-overlay_transition;
+        transition: all $cm-panel_speed $cm-panel_transition;
     }
 
     &::before,
@@ -57,7 +57,7 @@
 
         &::before {
             top: $cm-hamburger_height + $cm-hamburger_spacing;
-            transition: all $cm-overlay_speed $cm-overlay_transition;
+            transition: all $cm-panel_speed $cm-panel_transition;
         }
 
         &::after {
@@ -76,6 +76,7 @@
                 transform: rotate(-45deg) translate3d($cm-hamburger_width / -7, $cm-hamburger_spacing * -1, 0);
                 opacity: 0;
                 background-color: $cm-hamburger_color-active;
+                width: 0;
             }
 
             &::after {
@@ -91,10 +92,6 @@
 .cm-submenu-trigger {
     background: transparent;
     border: none;
-    flex: auto;
-    order: 2;
-    display: flex;
-    justify-content: flex-end;
 
     &::after {
         content: "\ea50";
@@ -107,7 +104,7 @@
         -moz-osx-font-smoothing: grayscale;
         height: 0;
         transform: rotate(90deg);
-        transition: all $cm-overlay_speed $cm-overlay_transition;
+        transition: all $cm-panel_speed $cm-panel_transition;
     }
 
     .cm-has-submenu-open {

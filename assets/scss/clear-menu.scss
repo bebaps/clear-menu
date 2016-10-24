@@ -1,24 +1,24 @@
 // General Settings
 // -----------------------------------------------------------------------------
-$cm-submenus: false !default;
+$cm-submenus: true !default;
 $cm-breakpoint: '768px' !default;
 
 // Colors
 // -----------------------------------------------------------------------------
 $cm-color_white: rgb(255, 255, 255) !default;
 $cm-color_black: rgb(0, 0, 0) !default;
-$cm-color_overlay: $cm-color_black !default;
+$cm-color_overlay: #efefef !default;
 $cm-color_trigger: $cm-color_white !default;
 
 // Overlay Settings
 // -----------------------------------------------------------------------------
-$cm-overlay_width: 100% !default;
-$cm-overlay_height: 100% !default;
-$cm-overlay_position: fixed !default;
-$cm-overlay_top: 0 !default;
-$cm-overlay_left: 0 !default;
-$cm-overlay_speed: 0.25s !default;
-$cm-overlay_transition: ease !default;
+$cm-panel_width: 100% !default;
+$cm-panel_height: 100% !default;
+$cm-panel_position: fixed !default;
+$cm-panel_top: 0 !default;
+$cm-panel_left: 0 !default;
+$cm-panel_speed: 0.25s !default;
+$cm-panel_transition: ease !default;
 
 // Menu Settings
 // -----------------------------------------------------------------------------
@@ -38,3 +38,5 @@ $cm-hamburger_color-active: rgb(218, 73, 73) !default;
 @import "button";
 @import "panel";
 @import "menu";
+
+// TODO: review these and get rid of anything that is not needed

@@ -1,31 +1,23 @@
 /* -------------------------------------------------------------------------------------------------
   # Panel
 ------------------------------------------------------------------------------------------------- */
-.cm-overlay {
-    width: $cm-overlay_width;
-    height: $cm-overlay_height;
-
-    position: $cm-overlay_position;
-    top: $cm-overlay_top;
-    left: $cm-overlay_left;
+.cm-panel {
+    position: $cm-panel_position;
+    top: $cm-panel_top;
+    left: $cm-panel_left;
     z-index: 99;
+
+    width: $cm-panel_width;
+    height: $cm-panel_height;
+    padding: $cm-hamburger_width;
 
     background: $cm-color_overlay;
     opacity: 1;
     visibility: hidden;
-    transition: all $cm-overlay_speed $cm-overlay_transition;
-    overflow: scroll;
+    transition: all $cm-panel_speed $cm-panel_transition;
 
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
-
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-
-    * {
-        color: $cm-color_white;
-    }
 }
 
 .cm-reveal-top {

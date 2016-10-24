@@ -17,9 +17,9 @@
         </span>
     </button>
 
-    <nav id="cm-overlay" class="cm-overlay cm-reveal-top">
+    <nav id="cm-panel" class="cm-panel cm-reveal-top">
         <ul>
-            <li>
+            <li class="cm-has-submenu">
                 <a href="#">Link</a>
                 <ul>
                     <li><a href="#">Sub Link</a></li>
@@ -28,7 +28,7 @@
                 </ul>
             </li>
             <li><a href="#">Link</a></li>
-            <li>
+            <li class="cm-has-submenu">
                 <a href="#">Link</a>
                 <ul>
                     <li><a href="#">Sub Link</a></li>
@@ -45,7 +45,9 @@
 <script src="assets/js/clear-menu.js" async defer></script>
 <script>
     $( function() {
-        $( '#cm-hamburger' ).clearmenu();
+        $( '#cm-hamburger' ).clearmenu({
+            hasSubmenu: true
+        });
     } );
 </script>
 </body>
