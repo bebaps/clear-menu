@@ -1,37 +1,30 @@
 // General Settings
 // -----------------------------------------------------------------------------
-$cm-submenus: true !default;
-$cm-breakpoint: '768px' !default;
+$cm_submenus: true !default;
+$cm_breakpoint: 768px !default;
 
 // Colors
 // -----------------------------------------------------------------------------
-$cm-color_white: rgb(255, 255, 255) !default;
-$cm-color_black: rgb(0, 0, 0) !default;
-$cm-color_overlay: #efefef !default;
-$cm-color_trigger: $cm-color_white !default;
+$cm_color-white: rgb(255, 255, 255) !default;
+$cm_color-black: rgb(0, 0, 0) !default;
+$cm_color-overlay: rgb(239, 239, 239) !default;
 
 // Overlay Settings
 // -----------------------------------------------------------------------------
-$cm-panel_width: 100% !default;
-$cm-panel_height: 100% !default;
-$cm-panel_position: fixed !default;
-$cm-panel_top: 0 !default;
-$cm-panel_left: 0 !default;
-$cm-panel_speed: 0.25s !default;
-$cm-panel_transition: ease !default;
+$cm_panel-width: 100% !default;
+$cm_panel-height: 100% !default;
+$cm_panel-position: absolute !default;
+$cm_panel-top: 0 !default;
+$cm_panel-left: 0 !default;
+$cm_panel-speed: 0.25s !default;
+$cm_panel-transition: ease !default;
 
 // Menu Settings
 // -----------------------------------------------------------------------------
-$cm-menu_width: 90% !default;
-$cm-menu_position: relative !default;
-$cm-menu_top: 20% !default;
-
-// Hamburger Settings - Modified from https://github.com/jonsuh/hamburgers
-// -----------------------------------------------------------------------------
-$cm-hamburger_width: 40px !default;
-$cm-hamburger_height: 4px !default;
-$cm-hamburger_spacing: 6px !default;
-$cm-hamburger_color-active: rgb(218, 73, 73) !default;
+$cm_menu-width: 90% !default;
+$cm_menu-position: relative !default;
+$cm_menu-top: 20% !default;
+$cm_trigger-size: 15px !default;
 
 @import "normalize-custom";
 @import "fonts";

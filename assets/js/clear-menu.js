@@ -3,7 +3,7 @@ jQuery.fn.clearmenu = function(options) {
         nav: '.cm-nav',
         listItem: '.cm-has-submenu',
         hasSubmenuOpen: '.cm-has-submenu-open',
-        subMenuTrigger: '.cm-sub-trigger',
+        subMenuTrigger: '.icon-cross',
         overlay: '.cm-panel',
         top: 'cm-reveal-top',
         bottom: 'cm-reveal-bottom',
@@ -23,7 +23,7 @@ jQuery.fn.clearmenu = function(options) {
     }, options);
 
     var revealMenu = function() {
-        jQuery(settings.trigger).toggleClass('cm-is-active');
+        jQuery(settings.trigger).toggleClass('open');
         jQuery(settings.overlay).toggleClass('cm-is-visible');
     };
 
@@ -36,8 +36,8 @@ jQuery.fn.clearmenu = function(options) {
             jQuery(this).parent().toggleClass('cm-has-submenu-open').find('ul').slideToggle(200);
         };
 
-        parentLink.append('<button class="cm-submenu-trigger" type="button"></button>');
-        jQuery(settings.submenu).on('click.clearmenu', '.cm-submenu-trigger', toggleSubMenu);
+        parentLink.append('<i class="icon-cross"></i>');
+        jQuery(settings.submenu).on('click.clearmenu', '.icon-cross', toggleSubMenu);
     }
 
     // Add reveal type

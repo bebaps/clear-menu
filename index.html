@@ -10,11 +10,13 @@
     <link rel="stylesheet" href="assets/css/clear-menu.css">
 </head>
 <body>
-
-    <button id="cm-hamburger" class="cm-hamburger cm-hamburger-slider" type="button">
-        <span class="cm-hamburger-bun">
-            <span class="cm-hamburger-meat"></span>
-        </span>
+<!-- Start writing the documentation for this -->
+<!-- Revamp the JS to clone the button to also be the submenu trigger, with an option NOT to do that and use a different icon -->
+    <button class="cm-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </button>
 
     <nav id="cm-panel" class="cm-panel cm-reveal-top">
@@ -45,7 +47,7 @@
 <script src="assets/js/clear-menu.js" async defer></script>
 <script>
     $( function() {
-        $( '#cm-hamburger' ).clearmenu({
+        $( '.cm-hamburger' ).clearmenu({
             hasSubmenu: true
         });
     } );
