@@ -56,34 +56,6 @@ html [type="button"] {
 }
 
 /* -------------------------------------------------------------------------------------------------
-  # Fonts
-------------------------------------------------------------------------------------------------- */
-@font-face {
-  font-family: 'clear';
-  src: url(../fonts/clear.eot?1maawd);
-  src: url(../fonts/clear.eot?1maawd#iefix) format("embedded-opentype"), url(../fonts/clear.ttf?1maawd) format("truetype"), url(../fonts/clear.woff?1maawd) format("woff"), url(../fonts/clear.svg?1maawd#clear) format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
-[class^='cm-icon-'],
-[class*='cm-icon-'] {
-  font-family: 'clear' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.cm-icon-arrow::before {
-  content: '\ea50';
-}
-
-/* -------------------------------------------------------------------------------------------------
   # Buttons
 ------------------------------------------------------------------------------------------------- */
 .cm-hamburger {
@@ -95,9 +67,10 @@ html [type="button"] {
   -webkit-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
           transform: rotate(0deg);
-  -webkit-transition: .5s ease-in-out;
-  transition: .5s ease-in-out;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
   cursor: pointer;
+  background: white;
 }
 
 .cm-hamburger span {
@@ -105,51 +78,57 @@ html [type="button"] {
   position: absolute;
   height: 9px;
   width: 100%;
-  background: #d3531a;
+  background: black;
   border-radius: 9px;
   opacity: 1;
   left: 0;
   -webkit-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
           transform: rotate(0deg);
-  -webkit-transition: .25s ease-in-out;
-  transition: .25s ease-in-out;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .cm-hamburger span:nth-child(1) {
   top: 0px;
+  -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+          transform-origin: left center;
 }
 
-.cm-hamburger span:nth-child(2), .cm-hamburger span:nth-child(3) {
+.cm-hamburger span:nth-child(2) {
   top: 18px;
+  -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+          transform-origin: left center;
 }
 
-.cm-hamburger span:nth-child(4) {
+.cm-hamburger span:nth-child(3) {
   top: 36px;
+  -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+          transform-origin: left center;
 }
 
 .cm-hamburger.open span:nth-child(1) {
-  top: 18px;
-  width: 0%;
-  left: 50%;
-}
-
-.cm-hamburger.open span:nth-child(2) {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
+  top: -3px;
+  left: 8px;
+}
+
+.cm-hamburger.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
 }
 
 .cm-hamburger.open span:nth-child(3) {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
-}
-
-.cm-hamburger.open span:nth-child(4) {
-  top: 18px;
-  width: 0%;
-  left: 50%;
+  top: 39px;
+  left: 8px;
 }
 
 /* -------------------------------------------------------------------------------------------------
@@ -171,31 +150,31 @@ html [type="button"] {
   -webkit-backface-visibility: hidden;
 }
 
-.cm-reveal-top {
+.cm-panel-top {
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
           transform: translateY(-100%);
 }
 
-.cm-reveal-bottom {
+.cm-panel-bottom {
   -webkit-transform: translateY(100%);
       -ms-transform: translateY(100%);
           transform: translateY(100%);
 }
 
-.cm-reveal-left {
+.cm-panel-left {
   -webkit-transform: translateX(-100%);
       -ms-transform: translateX(-100%);
           transform: translateX(-100%);
 }
 
-.cm-reveal-right {
+.cm-panel-right {
   -webkit-transform: translateX(100%);
       -ms-transform: translateX(100%);
           transform: translateX(100%);
 }
 
-.cm-reveal-fade {
+.cm-panel-fade {
   opacity: 0;
 }
 
@@ -218,14 +197,6 @@ html [type="button"] {
   width: 90%;
 }
 
-.cm-panel > ul a {
-  position: relative;
-  display: block;
-  padding: 0.25em 0;
-  overflow: hidden;
-  text-decoration: none;
-}
-
 .cm-panel > ul li {
   position: relative;
 }
@@ -246,6 +217,14 @@ html [type="button"] {
   position: relative;
   font-size: 1rem;
   padding: 0.5em 2em;
+}
+
+.cm-panel > ul a {
+  position: relative;
+  display: block;
+  padding: 0.25em 0;
+  overflow: hidden;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=clear-menu.css.map */

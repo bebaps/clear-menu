@@ -10,33 +10,33 @@
     width: $cm_panel-width;
     height: $cm_panel-height;
 
-    background: $cm_color-overlay;
+    background: $cm_color-panel;
     opacity: 1;
     visibility: hidden;
     transition: all $cm_panel-speed $cm_panel-transition;
 
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
-}
 
-.cm-reveal-top {
-    transform: translateY(-100%);
-}
+    &-top {
+        transform: translateY(-100%);
+    }
 
-.cm-reveal-bottom {
-    transform: translateY(100%);
-}
+    &-bottom {
+        transform: translateY(100%);
+    }
 
-.cm-reveal-left {
-    transform: translateX(-100%);
-}
+    &-left {
+        transform: translateX(-100%);
+    }
 
-.cm-reveal-right {
-    transform: translateX(100%);
-}
+    &-right {
+        transform: translateX(100%);
+    }
 
-.cm-reveal-fade {
-    opacity: 0;
+    &-fade {
+        opacity: 0;
+    }
 }
 
 .cm-is-visible {

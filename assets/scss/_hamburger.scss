@@ -8,54 +8,54 @@
     width: 60px;
     height: 45px;
     transform: rotate(0deg);
-    transition: .5s ease-in-out;
+    transition: all $cm_panel-speed $cm_panel-transition;
     cursor: pointer;
+    background: $cm-color_white;
 
     span {
         display: block;
         position: absolute;
         height: 9px;
         width: 100%;
-        background: #d3531a;
+        background: $cm-color_black;
         border-radius: 9px;
         opacity: 1;
         left: 0;
         transform: rotate(0deg);
-        transition: .25s ease-in-out;
+        transition: all $cm_panel-speed $cm_panel-transition;
 
         &:nth-child(1) {
             top: 0px;
-        }
-
-        &:nth-child(2),
-        &:nth-child(3) {
-            top: 18px;
-        }
-
-        &:nth-child(4) {
-            top: 36px;
-        }
-    }
-
-    &.open span {
-        &:nth-child(1) {
-            top: 18px;
-            width: 0%;
-            left: 50%;
+            transform-origin: left center;
         }
 
         &:nth-child(2) {
-            transform: rotate(45deg);
+            top: 18px;
+            transform-origin: left center;
         }
 
         &:nth-child(3) {
-            transform: rotate(-45deg);
+            top: 36px;
+            transform-origin: left center;
+        }
+    }
+
+    &.open {
+        span:nth-child(1) {
+          transform: rotate(45deg);
+          top: -3px;
+          left: 8px;
         }
 
-        &:nth-child(4) {
-            top: 18px;
-            width: 0%;
-            left: 50%;
+        span:nth-child(2) {
+          width: 0%;
+          opacity: 0;
+        }
+
+        span:nth-child(3) {
+          transform: rotate(-45deg);
+          top: 39px;
+          left: 8px;
         }
     }
 }

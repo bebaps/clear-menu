@@ -1,15 +1,14 @@
 // General Settings
 // -----------------------------------------------------------------------------
-$cm_submenus: true !default;
-$cm_breakpoint: 768px !default;
+$cm_has-menu: true !default;
 
 // Colors
 // -----------------------------------------------------------------------------
 $cm_color-white: rgb(255, 255, 255) !default;
 $cm_color-black: rgb(0, 0, 0) !default;
-$cm_color-overlay: rgb(239, 239, 239) !default;
+$cm_color-panel: rgb(239, 239, 239) !default;
 
-// Overlay Settings
+// Panel Settings
 // -----------------------------------------------------------------------------
 $cm_panel-width: 100% !default;
 $cm_panel-height: 100% !default;
@@ -27,9 +26,10 @@ $cm_menu-top: 20% !default;
 $cm_trigger-size: 15px !default;
 
 @import "normalize-custom";
-@import "fonts";
-@import "button";
 @import "panel";
-@import "menu";
+@if $cm_has-menu {
+    @import "hamburger";
+    @import "menu";
+}
 
 // TODO: review these and get rid of anything that is not needed

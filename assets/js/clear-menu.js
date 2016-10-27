@@ -32,12 +32,14 @@ jQuery.fn.clearmenu = function(options) {
     // Sub-Menus
     if (settings.hasSubmenu) {
         var parentLink = jQuery(settings.submenu);
+        var subTrigger = settings.trigger.clone();
         var toggleSubMenu = function() {
             jQuery(this).parent().toggleClass('cm-has-submenu-open').find('ul').slideToggle(200);
         };
 
-        parentLink.append('<i class="icon-cross"></i>');
-        jQuery(settings.submenu).on('click.clearmenu', '.icon-cross', toggleSubMenu);
+        // parentLink.append('<i class="icon-cross"></i>');
+        subTrigger.appendTo(parentLink);
+        jQuery(settings.submenu).on('click.clearmenu', settings.trigger, toggleSubMenu);
     }
 
     // Add reveal type
