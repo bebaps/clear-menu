@@ -56,82 +56,6 @@ html [type="button"] {
 }
 
 /* -------------------------------------------------------------------------------------------------
-  # Buttons
-------------------------------------------------------------------------------------------------- */
-.cm-hamburger {
-  position: relative;
-  z-index: 100;
-  border: none;
-  width: 60px;
-  height: 45px;
-  -webkit-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-  cursor: pointer;
-  background: white;
-}
-
-.cm-hamburger span {
-  display: block;
-  position: absolute;
-  height: 9px;
-  width: 100%;
-  background: black;
-  border-radius: 9px;
-  opacity: 1;
-  left: 0;
-  -webkit-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
-.cm-hamburger span:nth-child(1) {
-  top: 0px;
-  -webkit-transform-origin: left center;
-      -ms-transform-origin: left center;
-          transform-origin: left center;
-}
-
-.cm-hamburger span:nth-child(2) {
-  top: 18px;
-  -webkit-transform-origin: left center;
-      -ms-transform-origin: left center;
-          transform-origin: left center;
-}
-
-.cm-hamburger span:nth-child(3) {
-  top: 36px;
-  -webkit-transform-origin: left center;
-      -ms-transform-origin: left center;
-          transform-origin: left center;
-}
-
-.cm-hamburger.open span:nth-child(1) {
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-  top: -3px;
-  left: 8px;
-}
-
-.cm-hamburger.open span:nth-child(2) {
-  width: 0%;
-  opacity: 0;
-}
-
-.cm-hamburger.open span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  top: 39px;
-  left: 8px;
-}
-
-/* -------------------------------------------------------------------------------------------------
   # Panel
 ------------------------------------------------------------------------------------------------- */
 .cm-panel {
@@ -144,8 +68,8 @@ html [type="button"] {
   background: #efefef;
   opacity: 1;
   visibility: hidden;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
 }
@@ -178,12 +102,88 @@ html [type="button"] {
   opacity: 0;
 }
 
-.cm-is-visible {
+.cm-panel-open {
   visibility: visible;
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
   opacity: 1;
+}
+
+/* -------------------------------------------------------------------------------------------------
+  # Buttons
+------------------------------------------------------------------------------------------------- */
+.cm-hamburger {
+  position: relative;
+  z-index: 100;
+  border: none;
+  width: 60px;
+  height: 45px;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  background: white;
+}
+
+.cm-hamburger span {
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 100%;
+  background: black;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.cm-hamburger span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+          transform-origin: left center;
+}
+
+.cm-hamburger span:nth-child(2) {
+  top: 18px;
+  -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+          transform-origin: left center;
+}
+
+.cm-hamburger span:nth-child(3) {
+  top: 36px;
+  -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+          transform-origin: left center;
+}
+
+.cm-hamburger-open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: -3px;
+  left: 8px;
+}
+
+.cm-hamburger-open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.cm-hamburger-open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: 39px;
+  left: 8px;
 }
 
 /* -------------------------------------------------------------------------------------------------

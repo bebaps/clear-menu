@@ -16,7 +16,7 @@ $cm_panel-position: absolute !default;
 $cm_panel-top: 0 !default;
 $cm_panel-left: 0 !default;
 $cm_panel-speed: 0.25s !default;
-$cm_panel-transition: ease !default;
+$cm_panel-transition: ease-in-out !default;
 
 // Menu Settings
 // -----------------------------------------------------------------------------
@@ -27,9 +27,7 @@ $cm_trigger-size: 15px !default;
 
 @import "normalize-custom";
 @import "panel";
-@if $cm_has-menu {
-    @import "hamburger";
-    @import "menu";
-}
+@import "hamburger";
+@import "menu";
 
 // TODO: review these and get rid of anything that is not needed

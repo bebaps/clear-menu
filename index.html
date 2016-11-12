@@ -10,15 +10,13 @@
     <link rel="stylesheet" href="assets/css/clear-menu.css">
 </head>
 <body>
-<!-- Start writing the documentation for this -->
-<!-- Revamp the JS to clone the button to also be the submenu trigger, with an option NOT to do that and use a different icon -->
     <button class="cm-hamburger">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <nav class="cm-panel cm-panel-top">
+    <nav class="cm-panel">
         <ul>
             <li class="cm-has-submenu">
                 <a href="#">Link</a>
@@ -42,14 +40,15 @@
         </ul>
     </nav>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="assets/js/clear-menu.js" async defer></script>
-<script>
-    $( function() {
-        $( '.cm-hamburger' ).clearmenu({
-            hasSubmenu: true
-        });
-    } );
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="assets/js/clear-menu.js" async defer></script>
+    <script>
+        $( function() {
+            $( '.cm-hamburger' ).clearmenu( {
+                hasSubmenu: false,
+                reveal: 'bottom'
+            } );
+        } );
+    </script>
 </body>
 </html>

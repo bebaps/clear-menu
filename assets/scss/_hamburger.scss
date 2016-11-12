@@ -10,14 +10,14 @@
     transform: rotate(0deg);
     transition: all $cm_panel-speed $cm_panel-transition;
     cursor: pointer;
-    background: $cm-color_white;
+    background: $cm_color-white;
 
     span {
         display: block;
         position: absolute;
         height: 9px;
         width: 100%;
-        background: $cm-color_black;
+        background: $cm_color-black;
         border-radius: 9px;
         opacity: 1;
         left: 0;
@@ -40,22 +40,22 @@
         }
     }
 
-    &.open {
+    &-open {
         span:nth-child(1) {
-          transform: rotate(45deg);
-          top: -3px;
-          left: 8px;
+            transform: rotate(45deg);
+            top: -3px;
+            left: 8px;
         }
 
         span:nth-child(2) {
-          width: 0%;
-          opacity: 0;
+            width: 0%;
+            opacity: 0;
         }
 
         span:nth-child(3) {
-          transform: rotate(-45deg);
-          top: 39px;
-          left: 8px;
+            transform: rotate(-45deg);
+            top: 39px;
+            left: 8px;
         }
     }
 }
