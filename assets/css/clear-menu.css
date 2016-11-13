@@ -227,4 +227,55 @@ html [type="button"] {
   text-decoration: none;
 }
 
+/* -------------------------------------------------------------------------------------------------
+  # Icons
+------------------------------------------------------------------------------------------------- */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  font-style: normal;
+  color: black;
+  text-align: left;
+  text-indent: -9999px;
+  direction: ltr;
+}
+
+.icon::before, .icon::after {
+  content: "";
+  pointer-events: none;
+}
+
+.icon-caret {
+  width: 20%;
+  height: 20px;
+  margin: 3px 10px;
+}
+
+.icon-caret::before, .icon-caret::after {
+  width: 7px;
+  height: 1px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  right: 2px;
+  box-shadow: inset 0 0 0 32px;
+  -webkit-transform-origin: right;
+      -ms-transform-origin: right;
+          transform-origin: right;
+}
+
+.icon-caret::before {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.icon-caret::after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
 /*# sourceMappingURL=clear-menu.css.map */
