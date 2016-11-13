@@ -1,7 +1,11 @@
 # Clear Menu
 A simple mobile menu that is easy in integrate into an existing project.
 
+# Getting Started
+- clone the repo or download the latest release
+- include the `Scss` files or final `CSS` into your project
+- include jQuery before including the `clear-menu.js` file
+- call the `clearmenu()` function on the element that you want to act as the panel
+
 ## TODO
-- hamburger button is optional, anything can be a trigger for a panel
-- let JS add the panel reveal class, based upon the appropriate setting
 - let JS add the sub-menu parent class, based upon the appropriate setting

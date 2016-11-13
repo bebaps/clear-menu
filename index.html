@@ -16,9 +16,9 @@
         <span></span>
     </button>
 
-    <nav class="cm-panel">
+    <nav id="panel" class="cm-panel">
         <ul>
-            <li class="cm-has-submenu">
+            <li>
                 <a href="#">Link</a>
                 <ul>
                     <li><a href="#">Sub Link</a></li>
@@ -27,7 +27,7 @@
                 </ul>
             </li>
             <li><a href="#">Link</a></li>
-            <li class="cm-has-submenu">
+            <li>
                 <a href="#">Link</a>
                 <ul>
                     <li><a href="#">Sub Link</a></li>
@@ -36,7 +36,7 @@
                 </ul>
             </li>
             <li><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+            <li><a href="#" class="trigger">Another Trigger</a></li>
         </ul>
     </nav>
 
@@ -44,9 +44,8 @@
     <script src="assets/js/clear-menu.js" async defer></script>
     <script>
         $( function() {
-            $( '.cm-hamburger' ).clearmenu( {
-                hasSubmenu: false,
-                reveal: 'bottom'
+            $( '#panel' ).clearmenu( {
+                hasSubMenu: true
             } );
         } );
     </script>
