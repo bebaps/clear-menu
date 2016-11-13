@@ -59,9 +59,8 @@ html [type="button"] {
   # Panel
 ------------------------------------------------------------------------------------------------- */
 .cm-panel {
+  padding: 5rem 0;
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: 99;
   width: 100%;
   height: 100%;
@@ -78,24 +77,32 @@ html [type="button"] {
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
           transform: translateY(-100%);
+  top: 0;
+  left: 0;
 }
 
 .cm-panel-bottom {
   -webkit-transform: translateY(100%);
       -ms-transform: translateY(100%);
           transform: translateY(100%);
+  bottom: 0;
+  left: 0;
 }
 
 .cm-panel-left {
   -webkit-transform: translateX(-100%);
       -ms-transform: translateX(-100%);
           transform: translateX(-100%);
+  top: 0;
+  left: 0;
 }
 
 .cm-panel-right {
   -webkit-transform: translateX(100%);
       -ms-transform: translateX(100%);
           transform: translateX(100%);
+  top: 0;
+  right: 0;
 }
 
 .cm-panel-fade {
@@ -117,8 +124,8 @@ html [type="button"] {
   position: relative;
   z-index: 100;
   border: none;
-  width: 60px;
-  height: 45px;
+  width: 35px;
+  height: 25px;
   -webkit-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
           transform: rotate(0deg);
@@ -131,7 +138,7 @@ html [type="button"] {
 .cm-hamburger span {
   display: block;
   position: absolute;
-  height: 9px;
+  height: 5px;
   width: 100%;
   background: black;
   border-radius: 9px;
@@ -145,21 +152,21 @@ html [type="button"] {
 }
 
 .cm-hamburger span:nth-child(1) {
-  top: 0px;
+  top: 0;
   -webkit-transform-origin: left center;
       -ms-transform-origin: left center;
           transform-origin: left center;
 }
 
 .cm-hamburger span:nth-child(2) {
-  top: 18px;
+  top: 10px;
   -webkit-transform-origin: left center;
       -ms-transform-origin: left center;
           transform-origin: left center;
 }
 
 .cm-hamburger span:nth-child(3) {
-  top: 36px;
+  top: 20px;
   -webkit-transform-origin: left center;
       -ms-transform-origin: left center;
           transform-origin: left center;
@@ -170,7 +177,7 @@ html [type="button"] {
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
   top: -3px;
-  left: 8px;
+  left: 5px;
 }
 
 .cm-hamburger-open span:nth-child(2) {
@@ -182,8 +189,8 @@ html [type="button"] {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
-  top: 39px;
-  left: 8px;
+  top: 22px;
+  left: 5px;
 }
 
 /* -------------------------------------------------------------------------------------------------
@@ -193,18 +200,11 @@ html [type="button"] {
   margin: 0 auto;
   padding: 0;
   position: relative;
-  top: 20%;
   width: 90%;
 }
 
 .cm-panel > ul li {
   position: relative;
-}
-
-.cm-panel > ul li > [class*="icon-"] {
-  position: absolute;
-  top: 0;
-  right: 0;
 }
 
 .cm-panel > ul li > ul {
@@ -233,7 +233,9 @@ html [type="button"] {
 .icon {
   display: inline-block;
   vertical-align: middle;
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
   font-style: normal;
   color: black;
   text-align: left;

@@ -4,7 +4,9 @@
 .icon {
     display: inline-block;
     vertical-align: middle;
-    position: relative;
+    position: absolute;
+    top: 0;
+    right: 0;
     font-style: normal;
     color: $cm_color-black;
     text-align: left;

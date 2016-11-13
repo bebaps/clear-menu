@@ -59,6 +59,10 @@
                 $( settings.subMenu ).parent().append( '<i class="icon icon-caret"></i>' );
                 $( settings.subMenu ).next().on( 'click.clearmenu', toggleSubMenu );
             }
+
+            if (settings.wordpress) {
+
+            }
         }
 
         /**

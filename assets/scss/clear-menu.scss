@@ -1,7 +1,3 @@
-// General Settings
-// -----------------------------------------------------------------------------
-$cm_has-menu: true !default;
-
 // Colors
 // -----------------------------------------------------------------------------
 $cm_color-white: rgb(255, 255, 255) !default;
@@ -14,21 +10,11 @@ $cm_panel-width: 100% !default;
 $cm_panel-height: 100% !default;
 $cm_panel-position: absolute !default;
 $cm_panel-top: 0 !default;
-$cm_panel-left: 0 !default;
 $cm_panel-speed: 0.25s !default;
 $cm_panel-transition: ease-in-out !default;
-
-// Menu Settings
-// -----------------------------------------------------------------------------
-$cm_menu-width: 90% !default;
-$cm_menu-position: relative !default;
-$cm_menu-top: 20% !default;
-$cm_trigger-size: 15px !default;
 
 @import "normalize-custom";
 @import "panel";
 @import "hamburger";
 @import "menu";
 @import "icons";
-
-// TODO: review these and get rid of anything that is not needed

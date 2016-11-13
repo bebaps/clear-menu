@@ -5,18 +5,11 @@
     > ul {
         margin: 0 auto;
         padding: 0;
-        position: $cm_menu-position;
-        top: $cm_menu-top;
-        width: $cm_menu-width;
+        position: relative;
+        width: 90%;
 
         li {
             position: relative;
-
-            > [class*="icon-"] {
-                position: absolute;
-                top: 0;
-                right: 0;
-            }
 
             > ul {
                 margin: 0;
