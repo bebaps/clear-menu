@@ -3,7 +3,6 @@
 ------------------------------------------------------------------------------------------------- */
 .icon {
     display: inline-block;
-    vertical-align: middle;
     position: absolute;
     top: 0;
     right: 0;
@@ -43,6 +42,32 @@
 
         &::after {
             transform: rotate(-45deg);
+        }
+    }
+
+    &-close {
+        width: 30px;
+        height: 30px;
+        margin: 2px;
+        transform: rotate(45deg);
+
+        &::before,
+        &::after {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: inset 0 0 0 32px;
+        }
+
+        &::before {
+            width: 20px;
+            height: 2px;
+        }
+
+        &::after {
+            height: 20px;
+            width: 2px;
         }
     }
 }
