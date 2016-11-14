@@ -7,14 +7,17 @@
         padding: 0;
         position: relative;
         width: 90%;
+        display: block;
+        list-style: none;
 
         li {
             position: relative;
 
             > ul {
+                display: none;
                 margin: 0;
                 padding: 0;
-                display: none;
+                position: relative;
 
                 a {
                     position: relative;

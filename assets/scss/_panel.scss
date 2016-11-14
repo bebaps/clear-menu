@@ -2,12 +2,13 @@
   # Panel
 ------------------------------------------------------------------------------------------------- */
 .cm-panel {
-    padding: 5rem 0;
     position: $cm_panel-position;
     z-index: 99;
 
     width: $cm_panel-width;
+    max-width: 100%;
     height: $cm_panel-height;
+    max-height: 100%;
 
     background: $cm_color-panel;
     opacity: 1;
