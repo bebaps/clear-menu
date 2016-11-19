@@ -2,13 +2,8 @@
   # Custom Normalize
 ------------------------------------------------------------------------------------------------- */
 menu,
-nav,
-section {
+nav {
     display: block;
-}
-
-[hidden] {
-    display: none;
 }
 
 a {
@@ -21,25 +16,12 @@ a {
     }
 }
 
-img {
-    border-style: none;
-}
-
-svg:not(:root) {
-    overflow: hidden;
-}
-
-hr {
-    box-sizing: content-box;
-    height: 0;
-    overflow: visible;
-}
-
 button {
     font: inherit;
     margin: 0;
     overflow: visible;
     text-transform: none;
+    -webkit-appearance: button;
 
     &::-moz-focus-inner {
         border-style: none;
@@ -49,9 +31,4 @@ button {
     &:-moz-focusring {
         outline: 1px dotted ButtonText;
     }
-}
-
-button,
-html [type="button"] {
-    -webkit-appearance: button;
 }
