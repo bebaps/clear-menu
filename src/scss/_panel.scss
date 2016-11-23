@@ -3,9 +3,9 @@
 ------------------------------------------------------------------------------------------------- */
 .cm-panel {
     position: $cm_panel-position;
+    z-index: 99;
     top: $cm_panel-top;
     left: 0;
-    z-index: 99;
 
     width: $cm_panel-width;
     max-width: 100%;
@@ -13,12 +13,15 @@
     max-height: 100%;
 
     background: $cm_color-panel;
+    overflow: auto;
     opacity: 1;
     visibility: hidden;
     transition: all $cm_panel-speed $cm_panel-transition;
 
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-overflow-scrolling: touch;
 
     // Reveal from the top
     &-top {
@@ -55,4 +58,8 @@
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }

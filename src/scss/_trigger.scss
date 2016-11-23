@@ -1,0 +1,91 @@
+$color-1: #021725; // blue
+$color-2: #e36767; // red
+$color-3: #fff; // white
+
+.cd-primary-nav-trigger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    background-color: lighten($color-1, 5%);
+
+    .cd-menu-text {
+        color: $color-3;
+        text-transform: uppercase;
+        font-weight: 700;
+        display: inline-block;
+    }
+
+    .cd-menu-icon {
+        /* this span is the central line of the menu icon */
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        bottom: auto;
+        right: auto;
+        width: 18px;
+        height: 2px;
+        background-color: $color-3;
+        transition: background-color 0.3s ease-in-out;
+        transform: translateX(-50%) translateY(-50%);
+
+        /* these are the upper and lower lines in the menu icon */
+        &::before, &:after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: $color-3;
+            right: 0;
+            transition: transform .3s, top .3s, background-color 0s;
+        }
+
+        &::before {
+            top: -5px;
+        }
+
+        &::after {
+            top: 5px;
+        }
+
+        &.is-clicked {
+            background-color: rgba($color-3, 0);
+
+            &::before, &::after {
+                background-color: rgba($color-3, 1);
+            }
+
+            &::before {
+                top: 0;
+                transform: rotate(135deg);
+            }
+
+            &::after {
+                top: 0;
+                transform: rotate(225deg);
+            }
+        }
+    }
+
+    // @include MQ(M) {
+    //     width: 100px;
+    //     padding-left: 1em;
+    //     background-color: transparent;
+    //     height: 30px;
+    //     line-height: 30px;
+    //     right: 2.2em;
+    //     @include center(y);
+
+    //     .cd-menu-text {
+    //         display: inline-block;
+    //     }
+
+    //     .cd-menu-icon {
+    //         left: auto;
+    //         right: 1em;
+    //         @include transform(translateX(0) translateY(-50%));
+    //     }
+    // }
+}

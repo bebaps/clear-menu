@@ -37,20 +37,23 @@ button:-moz-focusring {
 ------------------------------------------------------------------------------------------------- */
 .cm-panel {
   position: absolute;
+  z-index: 99;
   top: 0;
   left: 0;
-  z-index: 99;
   width: 100%;
   max-width: 100%;
   height: 100%;
   max-height: 100%;
   background: #efefef;
+  overflow: auto;
   opacity: 1;
   visibility: hidden;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
   -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 
 .cm-panel-top {
@@ -91,6 +94,10 @@ button:-moz-focusring {
       -ms-transform: translateY(0);
           transform: translateY(0);
   opacity: 1;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 /* -------------------------------------------------------------------------------------------------
@@ -284,6 +291,84 @@ button:-moz-focusring {
 .icon-close::after {
   height: 20px;
   width: 2px;
+}
+
+.cd-primary-nav-trigger {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  background-color: #03263d;
+}
+
+.cd-primary-nav-trigger .cd-menu-text {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.cd-primary-nav-trigger .cd-menu-icon {
+  /* this span is the central line of the menu icon */
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  right: auto;
+  width: 18px;
+  height: 2px;
+  background-color: #fff;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+          transform: translateX(-50%) translateY(-50%);
+  /* these are the upper and lower lines in the menu icon */
+}
+
+.cd-primary-nav-trigger .cd-menu-icon::before, .cd-primary-nav-trigger .cd-menu-icon:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  right: 0;
+  -webkit-transition: top .3s, background-color 0s, -webkit-transform .3s;
+  transition: top .3s, background-color 0s, -webkit-transform .3s;
+  transition: transform .3s, top .3s, background-color 0s;
+  transition: transform .3s, top .3s, background-color 0s, -webkit-transform .3s;
+}
+
+.cd-primary-nav-trigger .cd-menu-icon::before {
+  top: -5px;
+}
+
+.cd-primary-nav-trigger .cd-menu-icon::after {
+  top: 5px;
+}
+
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::before, .cd-primary-nav-trigger .cd-menu-icon.is-clicked::after {
+  background-color: white;
+}
+
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::before {
+  top: 0;
+  -webkit-transform: rotate(135deg);
+      -ms-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.cd-primary-nav-trigger .cd-menu-icon.is-clicked::after {
+  top: 0;
+  -webkit-transform: rotate(225deg);
+      -ms-transform: rotate(225deg);
+          transform: rotate(225deg);
 }
 
 /*# sourceMappingURL=clearmenu.css.map */

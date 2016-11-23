@@ -16,6 +16,11 @@
         <span></span>
     </button>
 
+    <a class="cd-primary-nav-trigger" href="#0">
+        <span class="cd-menu-text">Menu</span>
+        <span class="cd-menu-icon"></span>
+    </a>
+
     <nav id="panel" class="cm-panel">
         <ul>
             <li>
@@ -45,6 +50,8 @@
         $( function() {
             $( '#panel' ).clearmenu( {
                 hasSubMenu: true,
+                trigger: '.cd-primary-nav-trigger',
+                reveal: 'left'
             } );
         } );
     </script>
