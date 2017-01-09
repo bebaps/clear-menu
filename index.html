@@ -1,59 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Clear Menu Demo</title>
+  <title>Clear Menu Demo</title>
 
-    <link rel="stylesheet" href="dist/css/clearmenu.css">
+  <link rel="stylesheet" href="dist/css/clearmenu.css">
 </head>
 <body>
-    <button class="cm-hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+  <a class="cd-primary-nav-trigger" href="#0">
+    <span class="cd-menu-text">Menu</span>
+    <span class="cd-menu-icon"></span>
+  </a>
 
-    <a class="cd-primary-nav-trigger" href="#0">
-        <span class="cd-menu-text">Menu</span>
-        <span class="cd-menu-icon"></span>
-    </a>
-
-    <nav id="panel" class="cm-panel">
+  <nav id="panel" class="cm-panel">
+    <ul>
+      <li>
+        <a href="#">Link</a>
         <ul>
-            <li>
-                <a href="#">Link</a>
-                <ul>
-                    <li><a href="#">Sub Link</a></li>
-                    <li><a href="#">Sub Link</a></li>
-                    <li><a href="#">Sub Link</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Link</a></li>
-            <li>
-                <a href="#">Link</a>
-                <ul>
-                    <li><a href="#">Sub Link</a></li>
-                    <li><a href="#">Sub Link</a></li>
-                    <li><a href="#">Sub Link</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Link</a></li>
+          <li><a href="#">Sub Link</a></li>
+          <li><a href="#">Sub Link</a></li>
+          <li><a href="#">Sub Link</a></li>
         </ul>
-    </nav>
+      </li>
+      <li><a href="#">Link</a></li>
+      <li>
+        <a href="#">Link</a>
+        <ul>
+          <li><a href="#">Sub Link</a></li>
+          <li><a href="#">Sub Link</a></li>
+          <li><a href="#">Sub Link</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Link</a></li>
+    </ul>
+  </nav>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-    <script src="dist/js/clearmenu.js" async defer></script>
-    <script>
-        $( function() {
-            $( '#panel' ).clearmenu( {
-                hasSubMenu: true,
-                trigger: '.cd-primary-nav-trigger',
-                reveal: 'left'
-            } );
-        } );
-    </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="dist/js/clearmenu.js" async defer></script>
+<script>
+  'use strict';
+
+  $(function() {
+    $('#panel').clearmenu({
+      hasSubMenu: true,
+      trigger: '.cd-primary-nav-trigger',
+      reveal: 'left'
+    });
+  });
+</script>
 </body>
 </html>

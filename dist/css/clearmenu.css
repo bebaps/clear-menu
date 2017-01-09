@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------------------------------
-  # Custom Normalize
+  # Reset
 ------------------------------------------------------------------------------------------------- */
 menu,
 nav {
@@ -135,81 +135,6 @@ button:-moz-focusring {
   padding: 0.25em 0;
   overflow: hidden;
   text-decoration: none;
-}
-
-/* -------------------------------------------------------------------------------------------------
-  # Hamburger
-------------------------------------------------------------------------------------------------- */
-.cm-hamburger {
-  position: relative;
-  border: none;
-  width: 35px;
-  height: 25px;
-  -webkit-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-  cursor: pointer;
-  background: white;
-}
-
-.cm-hamburger span {
-  display: block;
-  position: absolute;
-  height: 5px;
-  width: 100%;
-  background: black;
-  border-radius: 9px;
-  opacity: 1;
-  left: 0;
-  -webkit-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-          transform: rotate(0deg);
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
-}
-
-.cm-hamburger span:nth-child(1) {
-  top: 0;
-  -webkit-transform-origin: left center;
-      -ms-transform-origin: left center;
-          transform-origin: left center;
-}
-
-.cm-hamburger span:nth-child(2) {
-  top: 10px;
-  -webkit-transform-origin: left center;
-      -ms-transform-origin: left center;
-          transform-origin: left center;
-}
-
-.cm-hamburger span:nth-child(3) {
-  top: 20px;
-  -webkit-transform-origin: left center;
-      -ms-transform-origin: left center;
-          transform-origin: left center;
-}
-
-.cm-hamburger-open span:nth-child(1) {
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
-  top: -3px;
-  left: 5px;
-}
-
-.cm-hamburger-open span:nth-child(2) {
-  width: 0%;
-  opacity: 0;
-}
-
-.cm-hamburger-open span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  top: 22px;
-  left: 5px;
 }
 
 /* -------------------------------------------------------------------------------------------------

@@ -13,9 +13,9 @@ $cm_panel-top: 0 !default;
 $cm_panel-speed: 0.25s !default;
 $cm_panel-transition: ease-in-out !default;
 
-@import "normalize-custom";
+@import "reset";
 @import "panel";
 @import "menu";
-@import "hamburger";
+// @import "hamburger";
 @import "icons";
 @import "trigger";
