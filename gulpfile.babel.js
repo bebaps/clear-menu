@@ -52,10 +52,10 @@ const OPTIONS = {
   }
 };
 
-const gulp = require('gulp');
-const del = require('del');
-// const postscss = require('postcss-scss');
-// const reporter = require('postcss-reporter');
+import gulp from 'gulp';
+import del from 'del';
+import postscss from 'postcss-scss';
+import reporter from 'postcss-reporter';
 
 const BROWSERSYNC = require('browser-sync').create();
 const $ = require('gulp-load-plugins')(OPTIONS.loadplugins);
@@ -138,11 +138,6 @@ gulp.task('js', ['clean:js'], () => {
     .src('./src/js/*.js')
     .pipe($.sourcemaps.init())
     .pipe($.plumber())
-    // .pipe($.babel())
-    // .pipe($.rename({
-    //   basename: 'clearmenu',
-    //   extname: '.js'
-    // }))
     .pipe($.sourcemaps.write('/'))
     .pipe($.plumber.stop())
     .pipe(gulp.dest('./dist/js'));

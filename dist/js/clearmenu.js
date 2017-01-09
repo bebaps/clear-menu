@@ -97,3 +97,5 @@
     setUpClearMenu();
   };
 })(jQuery);
+
+//# sourceMappingURL=clearmenu.js.map
