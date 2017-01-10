@@ -133,13 +133,10 @@ gulp.task('js:lint', () => {
     .pipe($.eslint.failAfterError());
 });
 
-gulp.task('js', ['clean:js'], () => {
+gulp.task('js', () => {
   return gulp
     .src('./src/js/*.js')
-    .pipe($.sourcemaps.init())
     .pipe($.plumber())
-    .pipe($.sourcemaps.write('/'))
-    .pipe($.plumber.stop())
     .pipe(gulp.dest('./dist/js'));
 });
 
@@ -160,4 +157,4 @@ gulp.task('js:minify', ['js'], () => {
 
 // Default
 // -----------------------------------------------------------------------------
-gulp.task('default', ['server']);
+gulp.task('default', ['sass', 'js', 'server']);

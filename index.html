@@ -10,9 +10,9 @@
   <link rel="stylesheet" href="dist/css/clearmenu.css">
 </head>
 <body>
-  <a class="cd-primary-nav-trigger" href="#0">
-    <span class="cd-menu-text">Menu</span>
-    <span class="cd-menu-icon"></span>
+  <a class="cm-button" href="#0">
+    <!-- <span class="cm-button_text">Menu</span> -->
+    <span class="cm-button_icon"></span>
   </a>
 
   <nav id="panel" class="cm-panel">
@@ -46,8 +46,7 @@
   $(function() {
     $('#panel').clearmenu({
       hasSubMenu: true,
-      trigger: '.cd-primary-nav-trigger',
-      reveal: 'left'
+      reveal: 'top'
     });
   });
 </script>
