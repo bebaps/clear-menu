@@ -20,41 +20,41 @@
   backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
 
-  // Reveal from the top
-  &-top {
-    transform: translateY(-100%);
-  }
-
-  // Reveal from the bottom
-  &-bottom {
-    transform: translateY(100%);
-    top: unset;
-    bottom: 0;
-  }
-
-  // Reveal from the left
-  &-left {
-    transform: translateX(-100%);
-  }
-
-  // Reveal from the right
-  &-right {
-    transform: translateX(100%);
-    left: unset;
-    right: 0;
-  }
-
-  // Fade in reveal
-  &-fade {
-    opacity: 0;
-  }
-
   // For when the panel is visible
-  &-open {
+  &.cm-open {
     visibility: visible;
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+// Reveal from the top
+.cm-top {
+  transform: translateY(-100%);
+}
+
+// Reveal from the bottom
+.cm-bottom {
+  transform: translateY(100%);
+  top: unset;
+  bottom: 0;
+}
+
+// Reveal from the left
+.cm-left {
+  transform: translateX(-100%);
+}
+
+// Reveal from the right
+.cm-right {
+  transform: translateX(100%);
+  left: unset;
+  right: 0;
+}
+
+// Fade in reveal
+.cm-fade {
+  opacity: 0;
 }
 
 .overflow-hidden {

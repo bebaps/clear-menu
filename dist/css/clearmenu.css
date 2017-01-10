@@ -56,13 +56,21 @@ button:-moz-focusring {
   -webkit-overflow-scrolling: touch;
 }
 
-.cm-panel-top {
+.cm-panel.cm-open {
+  visibility: visible;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+}
+
+.cm-top {
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
           transform: translateY(-100%);
 }
 
-.cm-panel-bottom {
+.cm-bottom {
   -webkit-transform: translateY(100%);
       -ms-transform: translateY(100%);
           transform: translateY(100%);
@@ -70,13 +78,13 @@ button:-moz-focusring {
   bottom: 0;
 }
 
-.cm-panel-left {
+.cm-left {
   -webkit-transform: translateX(-100%);
       -ms-transform: translateX(-100%);
           transform: translateX(-100%);
 }
 
-.cm-panel-right {
+.cm-right {
   -webkit-transform: translateX(100%);
       -ms-transform: translateX(100%);
           transform: translateX(100%);
@@ -84,16 +92,8 @@ button:-moz-focusring {
   right: 0;
 }
 
-.cm-panel-fade {
+.cm-fade {
   opacity: 0;
-}
-
-.cm-panel-open {
-  visibility: visible;
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
-  opacity: 1;
 }
 
 .overflow-hidden {
@@ -140,7 +140,7 @@ button:-moz-focusring {
 /* -------------------------------------------------------------------------------------------------
   # Icons
 ------------------------------------------------------------------------------------------------- */
-.icon {
+.cm-icon {
   display: inline-block;
   position: absolute;
   top: 0;
@@ -152,18 +152,18 @@ button:-moz-focusring {
   direction: ltr;
 }
 
-.icon::before, .icon::after {
+.cm-icon::before, .cm-icon::after {
   content: "";
   pointer-events: none;
 }
 
-.icon-caret {
+.cm-icon-caret {
   width: 20%;
   height: 20px;
   margin: 3px 10px;
 }
 
-.icon-caret::before, .icon-caret::after {
+.cm-icon-caret::before, .cm-icon-caret::after {
   width: 7px;
   height: 1px;
   position: absolute;
@@ -177,19 +177,39 @@ button:-moz-focusring {
           transform-origin: right;
 }
 
-.icon-caret::before {
+.cm-icon-caret::before {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
-.icon-caret::after {
+.cm-icon-caret::after {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
-.icon-close {
+.cm-menu-open + .cm-icon-caret {
+  right: 2px;
+}
+
+.cm-menu-open + .cm-icon-caret::before, .cm-menu-open + .cm-icon-caret::after {
+  top: 5px;
+}
+
+.cm-menu-open + .cm-icon-caret::before {
+  -webkit-transform: rotate(-225deg);
+      -ms-transform: rotate(-225deg);
+          transform: rotate(-225deg);
+}
+
+.cm-menu-open + .cm-icon-caret::after {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.cm-icon-close {
   width: 30px;
   height: 30px;
   margin: 2px;
@@ -198,7 +218,7 @@ button:-moz-focusring {
           transform: rotate(45deg);
 }
 
-.icon-close::before, .icon-close::after {
+.cm-icon-close::before, .cm-icon-close::after {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -208,34 +228,30 @@ button:-moz-focusring {
   box-shadow: inset 0 0 0 32px;
 }
 
-.icon-close::before {
+.cm-icon-close::before {
   width: 20px;
   height: 2px;
 }
 
-.icon-close::after {
+.cm-icon-close::after {
   height: 20px;
   width: 2px;
 }
 
-.cd-primary-nav-trigger {
-  position: absolute;
-  right: 0;
-  top: 0;
-  height: 100%;
-  width: 50px;
-  background-color: #03263d;
+/* -------------------------------------------------------------------------------------------------
+  # Button
+------------------------------------------------------------------------------------------------- */
+.cm-button {
+  position: relative;
+  display: inline-block;
+  padding: 0.625em 1.25em;
 }
 
-.cd-primary-nav-trigger .cd-menu-text {
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 700;
+.cm-button_text {
   display: inline-block;
 }
 
-.cd-primary-nav-trigger .cd-menu-icon {
-  /* this span is the central line of the menu icon */
+.cm-button_icon {
   display: inline-block;
   position: absolute;
   left: 50%;
@@ -244,21 +260,20 @@ button:-moz-focusring {
   right: auto;
   width: 18px;
   height: 2px;
-  background-color: #fff;
+  background-color: black;
   -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
   -webkit-transform: translateX(-50%) translateY(-50%);
       -ms-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
-  /* these are the upper and lower lines in the menu icon */
 }
 
-.cd-primary-nav-trigger .cd-menu-icon::before, .cd-primary-nav-trigger .cd-menu-icon:after {
+.cm-button_icon::before, .cm-button_icon:after {
   content: '';
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: #fff;
+  background-color: black;
   right: 0;
   -webkit-transition: top .3s, background-color 0s, -webkit-transform .3s;
   transition: top .3s, background-color 0s, -webkit-transform .3s;
@@ -266,30 +281,30 @@ button:-moz-focusring {
   transition: transform .3s, top .3s, background-color 0s, -webkit-transform .3s;
 }
 
-.cd-primary-nav-trigger .cd-menu-icon::before {
+.cm-button_icon::before {
   top: -5px;
 }
 
-.cd-primary-nav-trigger .cd-menu-icon::after {
+.cm-button_icon::after {
   top: 5px;
 }
 
-.cd-primary-nav-trigger .cd-menu-icon.is-clicked {
-  background-color: rgba(255, 255, 255, 0);
+.cm-button.cm-active .cm-button_icon {
+  background-color: transparent;
 }
 
-.cd-primary-nav-trigger .cd-menu-icon.is-clicked::before, .cd-primary-nav-trigger .cd-menu-icon.is-clicked::after {
-  background-color: white;
+.cm-button.cm-active .cm-button_icon::before, .cm-button.cm-active .cm-button_icon::after {
+  background-color: black;
 }
 
-.cd-primary-nav-trigger .cd-menu-icon.is-clicked::before {
+.cm-button.cm-active .cm-button_icon::before {
   top: 0;
   -webkit-transform: rotate(135deg);
       -ms-transform: rotate(135deg);
           transform: rotate(135deg);
 }
 
-.cd-primary-nav-trigger .cd-menu-icon.is-clicked::after {
+.cm-button.cm-active .cm-button_icon::after {
   top: 0;
   -webkit-transform: rotate(225deg);
       -ms-transform: rotate(225deg);
