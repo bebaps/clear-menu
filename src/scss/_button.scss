@@ -1,11 +1,22 @@
 /* -------------------------------------------------------------------------------------------------
   # Button
 ------------------------------------------------------------------------------------------------- */
-// The button
 .cm-button {
   position: relative;
   display: inline-block;
-  padding: 0.625em 1.25em;
+  padding: 1em 1.25em;
+  outline: 1px solid rgba($cm_color-black, 0.1);
+  color: initial;
+
+  &::before {
+    content: "menu";
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    outline: 1px solid rgba($cm_color-black, 0.3);
+  }
 }
 
 // Button text
@@ -64,5 +75,10 @@
       top: 0;
       transform: rotate(225deg);
     }
+  }
+
+  // If the button is next to the text
+  .cm-button_text + & {
+    margin-left: 30px;
   }
 }

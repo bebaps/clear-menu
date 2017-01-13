@@ -11,10 +11,6 @@ a {
   -webkit-text-decoration-skip: objects;
 }
 
-a:active, a:hover {
-  outline-width: 0;
-}
-
 button {
   font: inherit;
   margin: 0;
@@ -244,7 +240,17 @@ button:-moz-focusring {
 .cm-button {
   position: relative;
   display: inline-block;
-  padding: 0.625em 1.25em;
+  padding: 1em 1.25em;
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  color: initial;
+}
+
+.cm-button::before {
+  content: "menu";
+}
+
+.cm-button:active, .cm-button:focus, .cm-button:hover {
+  outline: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .cm-button_text {
@@ -309,6 +315,10 @@ button:-moz-focusring {
   -webkit-transform: rotate(225deg);
       -ms-transform: rotate(225deg);
           transform: rotate(225deg);
+}
+
+.cm-button_text + .cm-button_icon {
+  margin-left: 30px;
 }
 
 /*# sourceMappingURL=clearmenu.css.map */
