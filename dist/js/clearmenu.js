@@ -2,7 +2,7 @@
 
 (function($) {
   $.fn.clearmenu = function(options) {
-    var animationSpeed, classes, settings, setUpClearMenu, revealMenu, toggleSubMenu;
+    var animationSpeed, classes, settings, setUpClearMenu, revealMenu, toggleSubMenu, maskIt;
 
     // Establish the default CSS classes to use
     classes = {
@@ -12,18 +12,21 @@
       left: 'cm-left',
       right: 'cm-right',
       fade: 'cm-fade',
-      visible: 'cm-open'
+      visible: 'cm-open',
+      mask: 'cm-mask',
+      active: 'cm-active'
     };
 
     // Establish the default plug-in settings
     settings = $.extend({
       panel: this,
-      close: true,
       trigger: '.cm-button',
-      reveal: 'fade',
-      hasSubMenu: true,
       subMenu: '.cm-submenu',
+      hasSubMenu: true,
+      reveal: 'fade',
       speed: 200,
+      mask: false,
+      close: true,
       wordpress: false
     }, options);
 
@@ -75,21 +78,33 @@
         $(settings.panel).prepend('<i class="cm-icon cm-icon-close"></i>');
         $('.cm-icon-close').on('click', function() {
           $(settings.panel).removeClass(classes.visible);
+          maskIt();
 
           if ('.cm-button' === settings.trigger) {
             $(settings.trigger).removeClass('cm-active');
           }
         });
       }
+
+      // Add a mask to the body
+      maskIt = function() {
+        if (settings.mask) {
+          $('body').toggleClass(classes.mask);
+        }
+
+        return false;
+      };
     };
 
-    // Function to reveal the target panel that contains the menu
+    // Reveal the target panel
     revealMenu = function() {
       if ('.cm-button' === settings.trigger) {
         $(this).toggleClass('cm-active');
       }
 
       $(settings.panel).toggleClass(classes.visible);
+      $('body').toggleClass(classes.active);
+      maskIt();
     };
 
     $(settings.trigger).on('click.clearmenu', revealMenu);

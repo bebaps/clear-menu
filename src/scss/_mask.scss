@@ -1,0 +1,33 @@
+/* -----------------------------------------------------------------------------
+  # Mask
+----------------------------------------------------------------------------- */
+.cm-mask::after {
+  content: "";
+  display: block;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $cm_color-black;
+  opacity: 0;
+  visibility: hidden;
+  animation: fadeIn $cm_panel-speed $cm_panel-transition;
+}
+
+.cm-mask.cm-active::after {
+  opacity: 0.65;
+  visibility: visible;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 0.65;
+    visibility: visible;
+  }
+}

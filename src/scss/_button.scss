@@ -3,14 +3,13 @@
 ------------------------------------------------------------------------------------------------- */
 .cm-button {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 1em 1.25em;
   outline: 1px solid rgba($cm_color-black, 0.1);
   color: initial;
-
-  &::before {
-    content: "menu";
-  }
+  text-decoration: none;
 
   &:active,
   &:focus,
@@ -27,16 +26,11 @@
 // Hamburger icon
 .cm-button_icon {
   display: inline-block;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  bottom: auto;
-  right: auto;
+  position: relative;
   width: 18px;
   height: 2px;
   background-color: $cm_color-black;
   transition: background-color 0.3s ease-in-out;
-  transform: translateX(-50%) translateY(-50%);
 
   &::before,
   &:after {
@@ -57,7 +51,7 @@
     top: 5px;
   }
 
-  // When the button is clicked
+  // Hamburger animation
   .cm-button.cm-active & {
     background-color: rgba($cm_color-black, 0);
 
@@ -77,8 +71,8 @@
     }
   }
 
-  // If the button is next to the text
+  // If the hamburger is next to the text
   .cm-button_text + & {
-    margin-left: 30px;
+    margin-left: 5px;
   }
 }

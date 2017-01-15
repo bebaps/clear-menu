@@ -42,7 +42,6 @@ button:-moz-focusring {
   max-height: 100%;
   background: #efefef;
   overflow: auto;
-  opacity: 1;
   visibility: hidden;
   -webkit-transition: all 0.25s ease-in-out;
   transition: all 0.25s ease-in-out;
@@ -166,7 +165,7 @@ button:-moz-focusring {
   top: 0;
   bottom: 0;
   margin: auto 0;
-  right: 2px;
+  right: 10px;
   box-shadow: inset 0 0 0 32px;
   -webkit-transform-origin: right;
       -ms-transform-origin: right;
@@ -206,8 +205,8 @@ button:-moz-focusring {
 }
 
 .cm-icon-close {
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   margin: 2px;
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
@@ -225,13 +224,13 @@ button:-moz-focusring {
 }
 
 .cm-icon-close::before {
-  width: 20px;
-  height: 2px;
+  width: 15px;
+  height: 1px;
 }
 
 .cm-icon-close::after {
-  height: 20px;
-  width: 2px;
+  width: 1px;
+  height: 15px;
 }
 
 /* -------------------------------------------------------------------------------------------------
@@ -239,14 +238,22 @@ button:-moz-focusring {
 ------------------------------------------------------------------------------------------------- */
 .cm-button {
   position: relative;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 1em 1.25em;
   outline: 1px solid rgba(0, 0, 0, 0.1);
   color: initial;
-}
-
-.cm-button::before {
-  content: "menu";
+  text-decoration: none;
 }
 
 .cm-button:active, .cm-button:focus, .cm-button:hover {
@@ -259,19 +266,12 @@ button:-moz-focusring {
 
 .cm-button_icon {
   display: inline-block;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  bottom: auto;
-  right: auto;
+  position: relative;
   width: 18px;
   height: 2px;
   background-color: black;
   -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-      -ms-transform: translateX(-50%) translateY(-50%);
-          transform: translateX(-50%) translateY(-50%);
 }
 
 .cm-button_icon::before, .cm-button_icon:after {
@@ -318,7 +318,53 @@ button:-moz-focusring {
 }
 
 .cm-button_text + .cm-button_icon {
-  margin-left: 30px;
+  margin-left: 5px;
+}
+
+/* -----------------------------------------------------------------------------
+  # Mask
+----------------------------------------------------------------------------- */
+.cm-mask::after {
+  content: "";
+  display: block;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-animation: fadeIn 0.25s ease-in-out;
+          animation: fadeIn 0.25s ease-in-out;
+}
+
+.cm-mask.cm-active::after {
+  opacity: 0.65;
+  visibility: visible;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 0.65;
+    visibility: visible;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 0.65;
+    visibility: visible;
+  }
 }
 
 /*# sourceMappingURL=clearmenu.css.map */
