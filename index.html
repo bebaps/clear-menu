@@ -38,6 +38,11 @@
     </ul>
   </nav>
 
+  <a class="trigger-2" href="#">Panel 2</a>
+  <div id="panel-2" class="cm-panel">
+    <p>A second panel</p>
+  </div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="dist/js/clearmenu.js" async defer></script>
 <script>
@@ -47,6 +52,12 @@
     $('#panel').clearmenu({
       hasSubMenu: true,
       reveal: 'top'
+    });
+
+    $().clearmenu({
+      reveal: 'bottom',
+      panel: '#panel-2',
+      trigger: '.trigger-2'
     });
   });
 </script>

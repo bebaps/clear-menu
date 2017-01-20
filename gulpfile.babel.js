@@ -2,7 +2,7 @@
 
 const OPTIONS = {
   autoprefixer: {
-    browsers: ['> 1%', 'last 3 versions', 'Safari > 7', 'IE > 10']
+    browsers: ['> 1%', 'last 3 versions', 'Safari > 7']
   },
   browsersync: {
     server: true,
