@@ -65,6 +65,7 @@
           $(settings.subMenu).next().on('click.clearmenu', toggleSubMenu);
         }
 
+        // Sub-menus if in a WordPress theme
         if (settings.wordpress) {
           $(settings.panel).find('.menu-item-has-children').append('<i class="cm-icon cm-icon-caret"></i>');
           $('.menu-item-has-children').on('click.clearmenu', 'i', function() {
@@ -107,7 +108,11 @@
       maskIt();
     };
 
+    // Run the plug-in
     $(settings.trigger).on('click.clearmenu', revealMenu);
     setUpClearMenu();
+
+    // Return the jQuery object so other jQuery methods can still act upon it
+    return settings.panel;
   };
 })(jQuery);
