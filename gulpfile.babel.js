@@ -7,9 +7,7 @@ const OPTIONS = {
   browsersync: {
     server: true,
     ghostMode: {
-      clicks: true,
-      forms: true,
-      scroll: true
+      clicks: true
     },
     browser: ['google chrome'],
     reloadOnRestart: true,
@@ -67,8 +65,8 @@ gulp.task('server', ['sass'], () => {
     BROWSERSYNC.init(OPTIONS.browsersync);
   }
 
-  gulp.watch('./src/scss/*.scss', ['sass']);
-  gulp.watch('./src/js/*.js', ['js']);
+  gulp.watch('./src/*.scss', ['sass']);
+  gulp.watch('./src/*.js', ['js']);
   gulp.watch('./*.html').on('change', BROWSERSYNC.reload);
 });
 
@@ -76,82 +74,68 @@ gulp.task('server', ['sass'], () => {
 // -----------------------------------------------------------------------------
 // Delete compiled CSS
 gulp.task('clean:css', () => {
-  del('./dist/css');
+  del('./dist/clearmenu.min.css');
 });
 
 // Lint Sass/CSS
 gulp.task('lint:sass', () => {
   return gulp
-    .src('./src/scss/*.scss')
+    .src('./src/*.scss')
     .pipe($.stylelint(OPTIONS.stylelint));
 });
 
 // Compile Sass to CSS, and create a sourcemap
 gulp.task('sass', ['clean:css'], () => {
   return gulp
-    .src('./src/scss/*.scss')
+    .src('./src/*.scss')
     .pipe($.sourcemaps.init())
     .pipe($.plumber())
     .pipe($.sass(OPTIONS.sass)
       .on('error', $.sass.logError))
     .on('error', $.notify.onError('Error compiling Sass!'))
     .pipe($.autoprefixer(OPTIONS.autoprefixer))
-    .pipe($.sourcemaps.write('/'))
-    .pipe($.plumber.stop())
-    .pipe(gulp.dest('./dist/css'))
-    .pipe(BROWSERSYNC.stream());
-});
-
-// Optimize the compiled CSS via CSSNano
-gulp.task('sass:minify', ['sass'], () => {
-  return gulp
-    .src('./dist/css/*.css')
-    .pipe($.plumber())
     .pipe($.cssnano(OPTIONS.cssnano))
     .pipe($.rename({
       suffix: '.min',
       extname: '.css'
     }))
-    .pipe(gulp.dest('./dist/css'))
+    .pipe($.sourcemaps.write('/'))
+    .pipe($.plumber.stop())
+    .pipe(gulp.dest('./dist/'))
     .pipe(BROWSERSYNC.stream());
 });
 
 // JS
 // -----------------------------------------------------------------------------
-// Delete the generated project JS file and sourcemap(s)
+// Delete the generated project JS file
 gulp.task('clean:js', () => {
-  del('./dist/js');
+  del('./dist/clearmenu.min.js');
 });
 
 // Lint JavaScript via ESLint
 gulp.task('js:lint', () => {
   return gulp
-    .src('./src/js/*.js')
+    .src('./src/*.js')
     .pipe($.plumber())
     .pipe($.eslint())
     .pipe($.eslint.format())
     .pipe($.eslint.failAfterError());
 });
 
+// Process the JavaScript and create a sourcemap
 gulp.task('js', () => {
   return gulp
-    .src('./src/js/*.js')
-    .pipe($.plumber())
-    .pipe(gulp.dest('./dist/js'));
-});
-
-// Minify the concatenated JavaScript file
-gulp.task('js:minify', ['js'], () => {
-  return gulp
-    .src('./dist/js/*.js')
+    .src('./src/*.js')
+    .pipe($.sourcemaps.init())
     .pipe($.plumber())
     .pipe($.uglify())
     .pipe($.rename({
       suffix: '.min',
       extname: '.js'
     }))
+    .pipe($.sourcemaps.write('/'))
     .pipe($.plumber.stop())
-    .pipe(gulp.dest('./dist/js'))
+    .pipe(gulp.dest('./dist/'))
     .pipe(BROWSERSYNC.stream());
 });
 
