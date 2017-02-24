@@ -1,6 +1,6 @@
-'use strict';
-
 (function($) {
+  'use strict';
+
   $.fn.clearmenu = function(options) {
     var animationSpeed, classes, settings, setUpClearMenu, revealMenu, toggleSubMenu, maskIt;
 
