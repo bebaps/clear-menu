@@ -1,0 +1,319 @@
+// Colors
+// -----------------------------------------------------------------------------
+$cm_color-primary: #000 !default;
+
+// Panel Settings
+// -----------------------------------------------------------------------------
+$cm_panel-position: absolute !default;
+$cm_panel-top: 0 !default;
+$cm_panel-width: 100% !default;
+$cm_panel-height: 100% !default;
+$cm_panel-transition: ease-in-out !default;
+$cm_panel-speed: 0.25s !default;
+
+// Panel
+// -----------------------------------------------------------------------------
+.cm-panel {
+  display: block;
+  position: $cm_panel-position;
+  top: $cm_panel-top;
+  left: 0;
+  z-index: 99;
+  width: $cm_panel-width;
+  max-width: 100%;
+  height: $cm_panel-height;
+  max-height: 100%;
+  background-color: #fff;
+  overflow: auto;
+  visibility: hidden;
+  transition: all $cm_panel-speed $cm_panel-transition;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  // For when the panel is visible
+  &.cm-open {
+    visibility: visible;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Reveal from the top
+.cm-top {
+  transform: translateY(-100%);
+}
+
+// Reveal from the bottom
+.cm-bottom {
+  transform: translateY(100%);
+  top: unset;
+  bottom: 0;
+}
+
+// Reveal from the left
+.cm-left {
+  transform: translateX(-100%);
+}
+
+// Reveal from the right
+.cm-right {
+  transform: translateX(100%);
+  left: unset;
+  right: 0;
+}
+
+// Fade in reveal
+.cm-fade {
+  opacity: 0;
+}
+
+// Button
+// -----------------------------------------------------------------------------
+.cm-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: 1px solid rgba($cm_color-primary, 0.1);
+  margin: 0;
+  padding: 1em 1.25em;
+  background-color: transparent;
+  color: initial;
+  text-decoration: none;
+  text-transform: none;
+  font: inherit;
+  overflow: visible;
+  -webkit-text-decoration-skip: objects;
+  -webkit-tap-highlight-color: transparent;
+
+  &:active,
+  &:focus,
+  &:hover {
+    outline: 1px solid rgba($cm_color-primary, 0.3);
+  }
+}
+
+// Button text
+.cm-button_text {
+  display: inline-block;
+}
+
+// Hamburger icon
+.cm-button_icon {
+  display: inline-block;
+  position: relative;
+  width: 18px;
+  height: 2px;
+  background-color: $cm_color-primary;
+  transition: background-color $cm_panel-speed $cm_panel-transition;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $cm_color-primary;
+    transition: transform $cm_panel-speed, top $cm_panel-speed, background-color 0s;
+  }
+
+  &::before {
+    top: -5px;
+  }
+
+  &::after {
+    top: 5px;
+  }
+
+  // Hamburger animation
+  .cm-button.cm-active & {
+    background-color: rgba($cm_color-primary, 0);
+
+    &::before,
+    &::after {
+      background-color: $cm_color-primary;
+    }
+
+    &::before {
+      top: 0;
+      transform: rotate(135deg);
+    }
+
+    &::after {
+      top: 0;
+      transform: rotate(225deg);
+    }
+  }
+
+  // If the hamburger is next to the text
+  .cm-button_text + & {
+    margin-left: 5px;
+  }
+}
+
+// Menu(s)
+// -----------------------------------------------------------------------------
+.cm-panel {
+  > ul {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    width: 90%;
+    list-style: none;
+
+    li {
+      position: relative;
+
+      > ul {
+        display: none;
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+
+        a {
+          position: relative;
+          padding: 0.5em 2em;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    a {
+      display: block;
+      position: relative;
+      padding: 0.25em 0;
+      background-color: transparent;
+      overflow: hidden;
+      text-decoration: none;
+      -webkit-text-decoration-skip: objects;
+    }
+  }
+}
+
+// Icons
+// -----------------------------------------------------------------------------
+.cm-icon {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-style: normal;
+  text-align: left;
+  text-indent: -9999px;
+  color: $cm_color-primary;
+  direction: ltr;
+
+  &::before,
+  &::after {
+    content: "";
+    pointer-events: none;
+  }
+}
+
+.cm-icon-caret {
+  margin: 3px 10px;
+  width: 20%;
+  height: 20px;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    bottom: 0;
+    margin: auto 0;
+    width: 7px;
+    height: 1px;
+    box-shadow: inset 0 0 0 32px;
+    transform-origin: right;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  .cm-menu-open + & {
+    right: 2px;
+
+    &::before,
+    &::after {
+      top: 5px;
+    }
+
+    &::before {
+      transform: rotate(-225deg);
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+}
+
+.cm-icon-close {
+  margin: 2px;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-shadow: inset 0 0 0 32px;
+    transform: translate(-50%, -50%);
+  }
+
+  &::before {
+    width: 15px;
+    height: 1px;
+  }
+
+  &::after {
+    width: 1px;
+    height: 15px;
+  }
+}
+
+// Mask
+// -----------------------------------------------------------------------------
+.cm-mask::after {
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background-color: $cm_color-primary;
+  opacity: 0;
+  visibility: hidden;
+  animation: fadeIn $cm_panel-speed $cm_panel-transition;
+}
+
+.cm-mask.cm-active::after {
+  opacity: 0.65;
+  visibility: visible;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 0.65;
+    visibility: visible;
+  }
+}
