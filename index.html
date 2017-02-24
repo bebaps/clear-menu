@@ -7,48 +7,73 @@
 
   <title>Clear Menu Demo</title>
 
-  <link rel="stylesheet" href="dist/css/clearmenu.css">
+  <link rel="stylesheet" href="dist/clearmenu.css">
 </head>
 <body>
-  <a class="cm-button" href="#">
-    <span class="cm-button_text">Menu</span>
-    <span class="cm-button_icon"></span>
-  </a>
+<a class="cm-button" href="#">
+  <span class="cm-button_text">Menu</span>
+  <span class="cm-button_icon"></span>
+</a>
 
-  <nav id="panel" class="cm-panel">
-    <ul>
-      <li>
-        <a href="#">Link</a>
-        <ul>
-          <li><a href="#">Sub Link</a></li>
-          <li><a href="#">Sub Link</a></li>
-          <li><a href="#">Sub Link</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Link</a></li>
-      <li>
-        <a href="#">Link</a>
-        <ul>
-          <li><a href="#">Sub Link</a></li>
-          <li><a href="#">Sub Link</a></li>
-          <li><a href="#">Sub Link</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Link</a></li>
-    </ul>
-  </nav>
+<nav id="panel" class="cm-panel">
+  <ul>
+    <li>
+      <a href="#">Link</a>
+      <ul>
+        <li><a href="#">Sub Link</a></li>
+        <li><a href="#">Sub Link</a></li>
+        <li><a href="#">Sub Link</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Link</a></li>
+    <li>
+      <a href="#">Link</a>
+      <ul>
+        <li><a href="#">Sub Link</a></li>
+        <li><a href="#">Sub Link</a></li>
+        <li><a href="#">Sub Link</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Link</a></li>
+  </ul>
+</nav>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-  <script src="dist/js/clearmenu.js" async defer></script>
-  <script>
-    'use strict';
+<p>A demo of  basic mobile navigation. Any element can be used to trigger the panel that holds the menu. The panel is revealed via a fade animation, or can slide in from any direction.</p>
 
-    $(function() {
-      $('#panel').clearmenu({
-        hasSubMenu: true,
-        reveal: 'top'
-      });
+<h3>Demo Usage:</h3>
+<pre>
+$(function() {
+  $('#panel').clearmenu({
+    hasSubMenu: true,
+    reveal: 'fade'
+  });
+});
+</pre>
+
+<h3>Default options:</h3>
+<pre>
+  {
+  panel: this, // The element to act as the panel
+  close: true, // Show a close button in the panel
+  trigger: '.cm-hamburger', // The element that will trigger the selected panel when clicked
+  reveal: 'fade', // The reveal animation. Can be fade, top, bottom, left, or right.
+  hasSubMenu: true, // If the menu has should provide functionality for submenus or not
+  subMenu: '.cm-submenu', // The class or ID of the submenu
+  wordpress: false // If this panel is being used in a WordPress theme. This option will automatically use default WordPress menu class names for its functionality
+  }
+</pre>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script src="dist/clearmenu.js" async defer></script>
+<script>
+  'use strict';
+
+  $(function() {
+    $('#panel').clearmenu({
+      hasSubMenu: true,
+      reveal: 'top'
     });
-  </script>
+  });
+</script>
 </body>
 </html>
