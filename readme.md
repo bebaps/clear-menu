@@ -1,7 +1,7 @@
 # Clear Menu
 A simple mobile menu that is easy to integrate into a new or existing project. Clear Menu is actually two separate components acting as one; a panel that is revealed into the viewport, and a mobile menu.
 
-This is a developer focused plug-in. It is not meant to solve all navigation patterns but instead provide a base for you to build upon. The CSS is just enough to make all the components work properly, but it is expected that you will hack it to fit the design of your specific project.
+This is a developer focused plug-in. It is not meant to solve all navigation patterns but instead provide a base for you to build upon. The `scss` is just enough to make all the components work properly, but it is expected that you will hack it to fit the design of your specific project.
 
 ## Getting Started
 Include `clearmenu.scss` and `clearmenu.js` into your build process and compile. These files are left unprocessed/unoptimized on purpose. ***NOTE: jQuery 2.x or higher is a required dependency***
