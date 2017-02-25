@@ -1,13 +1,16 @@
-# Clear Menu
-A simple mobile menu that is easy to integrate into a new or existing project. Clear Menu is actually two separate components acting as one; a panel that is revealed into the viewport, and a mobile menu.
+# ClearMenu
+A simple mobile menu that is easy to integrate into a new or existing project. ClearMenu is actually two separate components acting as one; a panel that is revealed into the viewport, and a mobile menu.
 
 This is a developer focused plug-in. It is not meant to solve all navigation patterns but instead provide a base for you to build upon. The `scss` is just enough to make all the components work properly, but it is expected that you will hack it to fit the design of your specific project.
+
+## Demo
+[View Demo](http://codepen.io/bebaps/pen/jrBpxv)
 
 ## Getting Started
 Include `clearmenu.scss` and `clearmenu.js` into your build process and compile. These files are left unprocessed/unoptimized on purpose. ***NOTE: jQuery 2.x or higher is a required dependency***
 
 ## Usage
-The markup for Clear Menu is minimal, and composed of three primary components:
+The markup for ClearMenu is minimal, and composed of three primary components:
 
 ### The Panel
 The panel is just a container for whatever content you want to be revealed. This will most commonly be a `<div>`, `<section>`, or `<nav>`. ***The only mandatory attribute is a class of `cm-panel`.***
@@ -59,7 +62,7 @@ If using the trigger as a navigational button, you have a few options:
 ```
 
 ### Calling with jQuery
-Call Clear Menu inline or within an external JS file:
+Call ClearMenu inline or within an external JS file:
 ```
 <script>
   $(function() {
@@ -69,7 +72,7 @@ Call Clear Menu inline or within an external JS file:
 ```
 
 ## Options
-Clear Menu has a few options to alter its behavior. Below are the available options and their default settings:
+ClearMenu has a few options to alter its behavior. Below are the available options and their default settings:
 ```
 <script>
   $(function() {
@@ -88,7 +91,7 @@ Clear Menu has a few options to alter its behavior. Below are the available opti
 ```
 
 ## Using with WordPress
-You can use Clear Menu with WordPress in two steps.
+You can use ClearMenu with WordPress in two steps.
 
 First build your menu:
 ```
@@ -100,7 +103,7 @@ wp_nav_menu([
 ]);
 ?>
 ```
-Then set the `{wordpress: true}` option. This tells Clear Menu that it is functioning within WordPress, and thus targets the proper WordPress menu classes for functionality.
+Then set the `{wordpress: true}` option. This tells ClearMenu that it is functioning within WordPress, and thus targets the proper WordPress menu classes for functionality.
 ```
 <script>
   $(function() {
