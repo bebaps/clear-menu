@@ -3,3 +3,5 @@ node_modules
 .idea
 /dist/clearmenu.min.js.map
 /dist/clearmenu.min.css.map
+/dist/clearmenu.min.css
+/dist/clearmenu.min.js

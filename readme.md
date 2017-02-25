@@ -1,43 +1,27 @@
 # Clear Menu
-A simple mobile menu that is easy in integrate into an existing project. Clear Menu is actually two separate components acting as one; a panel that gets revealed into the viewport, and a mobile menu. Although these two components are packaged together by default, you can use them on their own as needed.
+A simple mobile menu that is easy to integrate into a new or existing project. Clear Menu is actually two separate components acting as one; a panel that is revealed into the viewport, and a mobile menu.
+
+This is a developer focused plug-in. It is not meant to solve all navigation patterns but instead provide a base for you to build upon. The CSS is just enough to make all the components work properly, but it is expected that you will hack it to fit the design of your specific project.
 
 ## Getting Started
-Include `clearmenu.css` into the `<head>` of your project.
-
-***Example:***
-
-`<link rel="stylesheet" href="path/to/clearmenu.css">`
-
-Next, include `clearmenu.js` before the closing `</body>` tag of your project, after jQuery.
-
-***Example:***
-
-```
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="path/to/clearmenu.js"></script>
-```
-You can now call the `clearmenu()` function on any element that you want to act as a panel.
-
-***Example:***
-
-`$('#panel').clearmenu();`
+Include `clearmenu.scss` and `clearmenu.js` into your build process and compile. These files are left unprocessed/unoptimized on purpose. ***NOTE: jQuery 2.x or higher is a required dependency***
 
 ## Usage
 The markup for Clear Menu is minimal, and composed of three primary components:
 
 ### The Panel
-The panel is just a container for whatever content you want to be revealed. This will most commonly be a `<div>`, `<section>`, or `<nav>` tag. ***The only mandatory attribute is a class of `cm-panel`.***
+The panel is just a container for whatever content you want to be revealed. This will most commonly be a `<div>`, `<section>`, or `<nav>`. ***The only mandatory attribute is a class of `cm-panel`.***
 ```
 <div class="cm-panel">
-  <!-- Whatever you want -->
+  <!-- code -->
 </div>
 ```
 
 ### The Menu
-The menu is just a standard `<ul>`. ***It is mandatory for the menu to be a direct child of `.cm-panel`.***
+The menu is just a standard `<ul>`. ***It is mandatory for the menu to have a class of `.cm-menu`.***
 ```
 <nav id="panel" class="cm-panel">
-  <ul>
+  <ul class="cm-menu">
     <li><a href="#">Link</a></li>
     <li>
       <a href="#">Link</a>
@@ -53,9 +37,9 @@ The menu is just a standard `<ul>`. ***It is mandatory for the menu to be a dire
 ```
 
 ### The Trigger
-The trigger is whatever element you want to trigger the revealing of the panel when clicked. Anything can be a trigger, but most commonly this will be an `<a>` or a `<button>`.
+The trigger is whatever element you want to trigger the panel to be revealed when clicked. Anything can be a trigger, but most commonly this will be an `<a>` or `<button>`.
 
-If using a trigger as a navigational button, you have a few options:
+If using the trigger as a navigational button, you have a few options:
 ```
 <!-- Standard hamburger icon -->
 <button class="cm-button">
@@ -68,14 +52,14 @@ If using a trigger as a navigational button, you have a few options:
 </button>
 
 <!-- Both -->
-<a class="cm-button" href="#">
+<a class="cm-button">
   <span class="cm-button_text">Menu</span>
   <span class="cm-button_icon"></span>
 </a>
 ```
 
 ### Calling with jQuery
-Call Clear Menu in a stand alone script or within an external JS file:
+Call Clear Menu inline or within an external JS file:
 ```
 <script>
   $(function() {
@@ -90,30 +74,39 @@ Clear Menu has a few options to alter its behavior. Below are the available opti
 <script>
   $(function() {
     $('#panel').clearmenu({
-      panel: this, // Define a panel that the trigger will target
-      trigger: '.cm-button', // Define the trigger
-      subMenu: '.cm-submenu', // Class that gets added to sub-menus if not in a WordPress install
-      hasSubMenu: true, // Allow sub-menus to be revealed
-      reveal: 'fade', // Define the reveal animation. Can be 'fade', 'top', 'bottom', 'left', or 'right'
-      speed: 200, // Define the speed of the animation
-      mask: false, // Should the body be masked to help focus on the panel
-      close: false, // Should the panel show a close icon
-      wordpress: false // If the menu is a WordPress menu
+      panel: this, // the element to act as the panel
+      trigger: '.cm-button', // the element that will trigger the selected panel when clicked
+      reveal: 'top', // the reveal animation. Can be fade, top, bottom, left, or right.
+      hasSubMenu: true, // if the menu should provide functionality for sub-menus or not
+      subMenu: '.cm-submenu', // the class or ID of the sub-menu
+      speed: 200, // panel animation speed
+      close: false, // show a close button in the panel
+      wordpress: false // if this panel is being used in a WordPress theme. When true, the default WordPress menu classes will automatically be used
     });
   });
 </script>
 ```
 
 ## Using with WordPress
-You can use Clear Menu with WordPress in two steps. First by building your menu:
+You can use Clear Menu with WordPress in two steps.
+
+First build your menu:
 ```
 <?php
-wp_nav_menu( array(
+wp_nav_menu([
   'theme_location'  => 'your-menu',
-  'container'       => 'nav',
-  'container_id'    => 'panel',
-  'container_class' => 'cm-panel'
-) );
+  'container_class' => 'cm-panel',
+  'menu_class'      => 'cm-menu menu'
+]);
 ?>
 ```
-and second by setting the `{wordpress: true}` option. This tells Clear Menu that it is functioning within WordPress, and thus targets the proper WordPress menu classes.
+Then set the `{wordpress: true}` option. This tells Clear Menu that it is functioning within WordPress, and thus targets the proper WordPress menu classes for functionality.
+```
+<script>
+  $(function() {
+    $('.cm-panel').clearmenu({
+      wordpress: true
+    });
+  });
+</script>
+```

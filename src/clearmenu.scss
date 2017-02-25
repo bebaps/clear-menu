@@ -11,14 +11,24 @@ $cm_panel-height: 100% !default;
 $cm_panel-transition: ease-in-out !default;
 $cm_panel-speed: 0.25s !default;
 
+// Menu Settings
+// -----------------------------------------------------------------------------
+$cm_list-item-height: 30px !default;
+
 // Panel
 // -----------------------------------------------------------------------------
+.cm-panel,
+.cm-panel * {
+  box-sizing: border-box;
+}
+
 .cm-panel {
   display: block;
   position: $cm_panel-position;
   top: $cm_panel-top;
   left: 0;
   z-index: 99;
+  padding: 20px;
   width: $cm_panel-width;
   max-width: 100%;
   height: $cm_panel-height;
@@ -39,6 +49,8 @@ $cm_panel-speed: 0.25s !default;
   }
 }
 
+// Panel Reveals
+// -----------------------------------------------------------------------------
 // Reveal from the top
 .cm-top {
   transform: translateY(-100%);
@@ -63,9 +75,50 @@ $cm_panel-speed: 0.25s !default;
   right: 0;
 }
 
-// Fade in reveal
+// Fade in
 .cm-fade {
   opacity: 0;
+}
+
+// Menu
+// -----------------------------------------------------------------------------
+.cm-menu {
+  display: block;
+  position: relative;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    min-height: $cm_list-item-height;
+
+    > ul {
+      display: none;
+      position: relative;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 0;
+
+      a {
+        position: relative;
+        padding: 5px 15px;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    position: relative;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    min-height: $cm_list-item-height;
+    background-color: transparent;
+    overflow: hidden;
+    text-decoration: none;
+    -webkit-text-decoration-skip: objects;
+  }
 }
 
 // Button
@@ -78,7 +131,6 @@ $cm_panel-speed: 0.25s !default;
   outline: 1px solid rgba($cm_color-primary, 0.1);
   margin: 0;
   padding: 1em 1.25em;
-  background-color: transparent;
   color: initial;
   text-decoration: none;
   text-transform: none;
@@ -153,49 +205,7 @@ $cm_panel-speed: 0.25s !default;
   }
 }
 
-// Menu(s)
-// -----------------------------------------------------------------------------
-.cm-panel {
-  > ul {
-    display: block;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0;
-    width: 90%;
-    list-style: none;
-
-    li {
-      position: relative;
-
-      > ul {
-        display: none;
-        position: relative;
-        margin-top: 0;
-        margin-bottom: 0;
-        padding-left: 0;
-
-        a {
-          position: relative;
-          padding: 0.5em 2em;
-          font-size: 1rem;
-        }
-      }
-    }
-
-    a {
-      display: block;
-      position: relative;
-      padding: 0.25em 0;
-      background-color: transparent;
-      overflow: hidden;
-      text-decoration: none;
-      -webkit-text-decoration-skip: objects;
-    }
-  }
-}
-
-// Icons
+// Other Icons
 // -----------------------------------------------------------------------------
 .cm-icon {
   display: inline-block;
@@ -216,15 +226,14 @@ $cm_panel-speed: 0.25s !default;
 }
 
 .cm-icon-caret {
-  margin: 3px 10px;
   width: 20%;
-  height: 20px;
+  height: $cm_list-item-height;
 
   &::before,
   &::after {
     position: absolute;
     top: 0;
-    right: 10px;
+    right: 0;
     bottom: 0;
     margin: auto 0;
     width: 7px;
@@ -282,38 +291,5 @@ $cm_panel-speed: 0.25s !default;
   &::after {
     width: 1px;
     height: 15px;
-  }
-}
-
-// Mask
-// -----------------------------------------------------------------------------
-.cm-mask::after {
-  content: "";
-  display: block;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  background-color: $cm_color-primary;
-  opacity: 0;
-  visibility: hidden;
-  animation: fadeIn $cm_panel-speed $cm_panel-transition;
-}
-
-.cm-mask.cm-active::after {
-  opacity: 0.65;
-  visibility: visible;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-  }
-  100% {
-    opacity: 0.65;
-    visibility: visible;
   }
 }

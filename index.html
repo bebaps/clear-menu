@@ -7,72 +7,107 @@
 
   <title>Clear Menu Demo</title>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="dist/clearmenu.min.css">
+  <style type="text/css">
+    body {
+      width: 100%;
+      height: 100vh;
+      line-height: 1.3;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #fff;
+    }
+
+    .demo {
+      display: flex;
+      height: 100%;
+    }
+
+    .demo-left {
+      flex: 60%;
+      position: relative;
+      padding: 20px;
+      z-index: 100;
+      background-color: #fff;
+      border-right: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .demo-right {
+      flex: 40%;
+      position: relative;
+    }
+
+    .demo-header {
+      background-color: gray;
+      position: relative;
+      z-index: 100;
+      height: 50px;
+    }
+
+    .cm-panel {
+      top: 50px;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      height: auto;
+    }
+  </style>
 </head>
 <body>
-<a class="cm-button" href="#">
-  <span class="cm-button_text">Menu</span>
-  <span class="cm-button_icon"></span>
-</a>
+<main class="demo">
+  <section class="demo-left">
+    <p>A simple mobile menu that is easy to integrate into a new or existing project. Clear Menu is actually two separate components acting as one; a panel that gets revealed into the viewport, and a mobile menu. Although these two components are packaged together by default, you can use them on their own as needed.</p>
 
-<nav id="panel" class="cm-panel">
-  <ul>
-    <li>
-      <a href="#">Link</a>
-      <ul>
-        <li><a href="#">Sub Link</a></li>
-        <li><a href="#">Sub Link</a></li>
-        <li><a href="#">Sub Link</a></li>
+    <h3>Example Usage:</h3>
+
+    <pre>
+    $(function() {
+      $('#panel').clearmenu();
+    });
+    </pre>
+
+    <p>View <a href="https://github.com/bebaps/clear-menu">the repo</a> for full documentation and options.</p>
+  </section>
+
+  <section class="demo-right">
+    <header class="demo-header">
+      <button class="cm-button">
+        <span class="cm-button_text">Menu</span>
+        <span class="cm-button_icon"></span>
+      </button>
+    </header>
+
+    <nav id="panel" class="cm-panel">
+      <ul class="cm-menu">
+        <li>
+          <a href="#">Link</a>
+          <ul>
+            <li><a href="#">Sub Link</a></li>
+            <li><a href="#">Sub Link</a></li>
+            <li><a href="#">Sub Link</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Link</a></li>
+        <li>
+          <a href="#">Link</a>
+          <ul>
+            <li><a href="#">Sub Link</a></li>
+            <li><a href="#">Sub Link</a></li>
+            <li><a href="#">Sub Link</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Link</a></li>
       </ul>
-    </li>
-    <li><a href="#">Link</a></li>
-    <li>
-      <a href="#">Link</a>
-      <ul>
-        <li><a href="#">Sub Link</a></li>
-        <li><a href="#">Sub Link</a></li>
-        <li><a href="#">Sub Link</a></li>
-      </ul>
-    </li>
-    <li><a href="#">Link</a></li>
-  </ul>
-</nav>
-
-<p>A demo of  basic mobile navigation. Any element can be used to trigger the panel that holds the menu. The panel is revealed via a fade animation, or can slide in from any direction.</p>
-
-<h3>Demo Usage:</h3>
-<pre>
-$(function() {
-  $('#panel').clearmenu({
-    hasSubMenu: true,
-    reveal: 'fade'
-  });
-});
-</pre>
-
-<h3>Default options:</h3>
-<pre>
-  {
-  panel: this, // The element to act as the panel
-  close: true, // Show a close button in the panel
-  trigger: '.cm-hamburger', // The element that will trigger the selected panel when clicked
-  reveal: 'fade', // The reveal animation. Can be fade, top, bottom, left, or right.
-  hasSubMenu: true, // If the menu has should provide functionality for submenus or not
-  subMenu: '.cm-submenu', // The class or ID of the submenu
-  wordpress: false // If this panel is being used in a WordPress theme. This option will automatically use default WordPress menu class names for its functionality
-  }
-</pre>
+    </nav>
+  </section>
+</main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="dist/clearmenu.min.js" async defer></script>
 <script>
-  'use strict';
-
   $(function() {
-    $('#panel').clearmenu({
-      hasSubMenu: true,
-      reveal: 'top'
-    });
+    $('#panel').clearmenu();
   });
 </script>
 </body>

@@ -2,7 +2,7 @@
   'use strict';
 
   $.fn.clearmenu = function(options) {
-    var animationSpeed, classes, settings, setUpClearMenu, revealMenu, toggleSubMenu, maskIt;
+    var animationSpeed, classes, settings, setUpClearMenu, revealMenu, toggleSubMenu;
 
     // Establish the default CSS classes to use
     classes = {
@@ -13,7 +13,6 @@
       right: 'cm-right',
       fade: 'cm-fade',
       visible: 'cm-open',
-      mask: 'cm-mask',
       active: 'cm-active'
     };
 
@@ -21,17 +20,16 @@
     settings = $.extend({
       panel: this,
       trigger: '.cm-button',
-      subMenu: '.cm-submenu',
+      reveal: 'top',
       hasSubMenu: true,
-      reveal: 'fade',
+      subMenu: '.cm-submenu',
       speed: 200,
-      mask: false,
-      close: true,
+      close: false,
       wordpress: false
     }, options);
 
     // Get the plug-in ready to run
-    setUpClearMenu = function() {
+    setUpClearMenu = function setUpClearMenu() {
       // Determine how to reveal the target panel
       switch (settings.reveal) {
         case 'bottom':
@@ -56,7 +54,7 @@
         animationSpeed = settings.speed;
 
         if (!settings.wordpress) {
-          toggleSubMenu = function() {
+          toggleSubMenu = function toggleSubMenu() {
             $(this).parent().find('ul').toggleClass('cm-menu-open').slideToggle(animationSpeed);
           };
 
@@ -78,36 +76,29 @@
         $(settings.panel).prepend('<i class="cm-icon cm-icon-close"></i>');
         $('.cm-icon-close').on('click', function() {
           $(settings.panel).removeClass(classes.visible);
-          maskIt();
 
           if ('.cm-button' === settings.trigger) {
             $(settings.trigger).removeClass('cm-active');
           }
         });
       }
-
-      // Add a mask to the body
-      maskIt = function() {
-        if (settings.mask) {
-          $('body').toggleClass(classes.mask);
-        }
-
-        return false;
-      };
     };
 
     // Reveal the target panel
-    revealMenu = function() {
+    revealMenu = function revealMenu() {
       if ('.cm-button' === settings.trigger) {
         $(this).toggleClass('cm-active');
       }
 
       $(settings.panel).toggleClass(classes.visible);
       $('body').toggleClass(classes.active);
-      maskIt();
     };
 
+    // Actually fire the plug-in
     $(settings.trigger).on('click.clearmenu', revealMenu);
     setUpClearMenu();
+
+    // Ensure chaining of other jQuery methods
+    return this;
   };
 })(jQuery);

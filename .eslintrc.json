@@ -1,7 +1,6 @@
 {
   "env": {
     "browser": true,
-    "es6": true,
     "jquery": true
   },
   "parserOptions": {
@@ -144,7 +143,6 @@
     "no-useless-rename": 2,
     "no-warning-comments": 1,
     "no-whitespace-before-property": 2,
-    "no-var": 1,
     "no-with": 2,
     "object-curly-newline": [1, "always"],
     "object-property-newline": 2,
@@ -170,7 +168,6 @@
       "always",
       {"markers": ["global", "globals", "eslint", "eslint-disable", "*package", "!", ","]}
     ],
-    "strict": [2, "global"],
     "template-curly-spacing": [2, "never"],
     "use-isnan": 2,
     "vars-on-top": 2,
