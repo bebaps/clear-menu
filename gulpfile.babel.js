@@ -110,6 +110,7 @@ gulp.task('sass', ['clean:css'], () => {
 // Delete the generated project JS file
 gulp.task('clean:js', () => {
   del('./dist/clearmenu.min.js');
+  del('./dist/clearmenu.jquery.min.js');
 });
 
 // Lint JavaScript via ESLint
@@ -125,9 +126,11 @@ gulp.task('js:lint', () => {
 // Process the JavaScript and create a sourcemap
 gulp.task('js', () => {
   return gulp
-    .src('./src/*.js')
+    // .src('./src/*.js')
+    .src('./src/clearmenu.js')
     .pipe($.sourcemaps.init())
     .pipe($.plumber())
+    // .pipe($.babel())
     .pipe($.uglify())
     .pipe($.rename({
       suffix: '.min',
